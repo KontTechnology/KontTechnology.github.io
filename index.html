@@ -4,214 +4,164 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Kont Technology</title>
-<meta name="description" content="Small, honest Android utilities and puzzles by Kont Technology. No accounts, no sign-in.">
-<link rel="icon" type="image/png" href="/favicon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="icon" type="image/png" href="favicon.png">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-:root{
-  color-scheme:light dark;
-  --bg:#ffffff;--surface:#ffffff;--ink:#202124;--muted:#5f6368;--line:#e8eaed;
-  --accent:#01875f;--accent-ink:#ffffff;--tab:#01875f;--chip:#f1f3f4;--hover:#f6f8f9;
-  --navy:#0d3b73;--teal:#1fb6cc;--orange:#f39c1f;
-  --shadow:0 1px 2px rgba(60,64,67,.3),0 1px 3px 1px rgba(60,64,67,.15);
-  --topbg:rgba(255,255,255,.72);
-  --a1:#1fb6cc;--a2:#2f6fd0;--a3:#f39c1f;--a-op:.22;
-  --glow:radial-gradient(60rem 28rem at 12% -8%,rgba(31,182,204,.16),transparent 70%),radial-gradient(50rem 26rem at 95% -5%,rgba(13,59,115,.14),transparent 70%),radial-gradient(40rem 22rem at 70% 105%,rgba(243,156,31,.10),transparent 70%);
-  --dots:radial-gradient(rgba(13,59,115,.07) 1px,transparent 1.2px);
-}
-@media (prefers-color-scheme:dark){
-  :root{--bg:#131314;--surface:#1e1f20;--ink:#e3e3e3;--muted:#a8abae;--line:#2d2f31;
-        --accent:#4fd6a5;--accent-ink:#00382a;--tab:#4fd6a5;--chip:#2a2b2d;--hover:#1b1c1d;
-        --shadow:0 1px 3px rgba(0,0,0,.6);
-        --topbg:rgba(19,19,20,.7);
-        --a1:#1f9fb8;--a2:#2a4fa8;--a3:#c77a12;--a-op:.32;
-        --glow:radial-gradient(60rem 28rem at 12% -8%,rgba(31,182,204,.20),transparent 70%),radial-gradient(50rem 26rem at 95% -5%,rgba(60,110,200,.22),transparent 70%),radial-gradient(40rem 22rem at 70% 105%,rgba(243,156,31,.10),transparent 70%);
-        --dots:radial-gradient(rgba(255,255,255,.05) 1px,transparent 1.2px)}
-}
+/* Kont Technology — Aurora Plus + featured carousel */
+:root{color-scheme:light dark;
+  --bg:#fff;--surface:#fff;--ink:#202124;--muted:#5f6368;--line:#e3e7eb;--glass:rgba(255,255,255,.72);
+  --accent:#01875f;--accent-ink:#fff;--hover:rgba(0,0,0,.035);
+  --a1:#1fb6cc;--a2:#2f6fd0;--a3:#f39c1f;--a-op:.22;--shadow:0 1px 2px rgba(60,64,67,.25),0 2px 6px rgba(60,64,67,.12)}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#131314;--surface:#1e1f20;--ink:#e3e3e3;--muted:#a8abae;--line:#2d2f31;--glass:rgba(30,31,32,.62);
+  --accent:#4fd6a5;--accent-ink:#00382a;--hover:rgba(255,255,255,.04);
+  --a1:#1f9fb8;--a2:#2a4fa8;--a3:#c77a12;--a-op:.32;--shadow:0 1px 3px rgba(0,0,0,.6)}}
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;min-height:100vh;background:var(--dots),var(--bg);background-attachment:fixed;background-size:22px 22px,auto;color:var(--ink);font:15px/1.5 Roboto,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+body{margin:0;min-height:100vh;background:radial-gradient(var(--line) 1px,transparent 1.2px) 0 0/22px 22px fixed,var(--bg);color:var(--ink);font:15px/1.5 Roboto,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
-
-/* animated background */
 .aurora{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
-.aurora i{position:absolute;border-radius:50%;filter:blur(70px);opacity:var(--a-op);will-change:transform}
-.aurora i:nth-child(1){width:46vmax;height:46vmax;left:-12vmax;top:-18vmax;background:var(--a1);animation:drift1 26s ease-in-out infinite alternate}
-.aurora i:nth-child(2){width:40vmax;height:40vmax;right:-14vmax;top:-12vmax;background:var(--a2);animation:drift2 32s ease-in-out infinite alternate}
-.aurora i:nth-child(3){width:34vmax;height:34vmax;left:35%;bottom:-20vmax;background:var(--a3);animation:drift3 38s ease-in-out infinite alternate}
-.aurora i:nth-child(4){width:18vmax;height:18vmax;left:55%;top:30%;background:var(--a1);opacity:calc(var(--a-op)*.6);animation:drift2 44s ease-in-out infinite alternate-reverse}
-@keyframes drift1{to{transform:translate(18vw,14vh) scale(1.15)}}
-@keyframes drift2{to{transform:translate(-20vw,18vh) scale(.9)}}
-@keyframes drift3{to{transform:translate(-16vw,-22vh) scale(1.2)}}
-@media (prefers-reduced-motion:reduce){.aurora i{animation:none}}
+.aurora i{position:absolute;border-radius:50%;filter:blur(70px);opacity:var(--a-op)}
+.aurora i:nth-child(1){width:46vmax;height:46vmax;left:-12vmax;top:-18vmax;background:var(--a1);animation:d1 26s ease-in-out infinite alternate}
+.aurora i:nth-child(2){width:40vmax;height:40vmax;right:-14vmax;top:-12vmax;background:var(--a2);animation:d2 32s ease-in-out infinite alternate}
+.aurora i:nth-child(3){width:34vmax;height:34vmax;left:35%;bottom:-20vmax;background:var(--a3);animation:d3 38s ease-in-out infinite alternate}
+@keyframes d1{to{transform:translate(18vw,14vh) scale(1.15)}}@keyframes d2{to{transform:translate(-20vw,18vh) scale(.9)}}@keyframes d3{to{transform:translate(-16vw,-22vh) scale(1.2)}}
 .wrap{max-width:62rem;margin:0 auto;padding:0 1rem}
 
+/* language switch */
+.lang{position:fixed;top:14px;right:14px;z-index:10;display:flex;padding:3px;border-radius:999px;background:var(--glass);border:1px solid var(--line);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:var(--shadow)}
+.lang button{all:unset;cursor:pointer;font:500 .8rem Roboto,sans-serif;padding:.35rem .75rem;border-radius:999px;color:var(--muted);transition:.2s}
+.lang button[aria-pressed=true]{background:var(--accent);color:var(--accent-ink)}
+
 /* hero */
-.hero{display:flex;align-items:center;gap:1.25rem;padding:3rem 0 .5rem}
-.hero img{width:88px;height:88px;border-radius:22px;background:#fff;box-shadow:var(--shadow);padding:6px;flex:none}
+.hero{display:flex;align-items:center;gap:1.25rem;padding:4rem 0 .5rem}
+.logo{position:relative;width:88px;height:88px;flex:none}
+.logo::before{content:"";position:absolute;inset:-3px;border-radius:25px;background:conic-gradient(from 0deg,var(--a1),var(--a2),var(--a3),var(--a1));animation:spin 6s linear infinite}
+.logo img{position:relative;width:88px;height:88px;border-radius:22px;background:#fff;padding:6px;display:block}
+@keyframes spin{to{transform:rotate(360deg)}}
 .hero h1{margin:0;font-size:1.9rem;font-weight:500;line-height:1.2}
-.hero .dev{color:var(--accent);font-weight:500;margin-top:.15rem}
-.hero p{margin:.35rem 0 0;color:var(--muted)}
-.stats{display:flex;gap:.5rem;margin:1.5rem 0 0;flex-wrap:wrap}
-.stats a{position:relative;min-width:6.5rem;padding:.7rem 1.1rem .8rem;border-radius:14px;text-align:center;
-  background:var(--topbg);border:1px solid var(--line);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
-  transition:background .15s,border-color .15s,transform .15s}
-.stats a:hover{transform:translateY(-1px);border-color:var(--muted)}
-.stats strong{display:block;font-weight:500;font-size:1.15rem;line-height:1.2}
-.stats span{font-size:.8rem;color:var(--muted)}
-.stats a[aria-selected=true]{border-color:var(--tab)}
-.stats a[aria-selected=true] strong,.stats a[aria-selected=true] span{color:var(--tab)}
-.stats a[aria-selected=true]::after{content:"";position:absolute;left:30%;right:30%;bottom:-1px;height:3px;border-radius:3px 3px 0 0;background:var(--tab)}
+.role{color:var(--accent);font-weight:500}
+.hero p{margin:.3rem 0 0;color:var(--muted)}
 
-/* sections */
-.panel{padding:1.25rem 0 1rem}
-.panel[hidden]{display:none}
-h2{font-size:1.3rem;font-weight:500;margin:1rem 0 .25rem}
+/* tab cards + unified button style */
+.tabs{display:flex;gap:.5rem;margin:1.5rem 0 0;flex-wrap:wrap}
+.chip,.btn{background:var(--glass);border:1px solid var(--line);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:transform .15s,border-color .15s,background .15s}
+.tabs a{position:relative;min-width:6.5rem;padding:.7rem 1.1rem .8rem;border-radius:14px;text-align:center}
+.tabs a:hover,.btn:hover{transform:translateY(-1px);border-color:var(--muted)}
+.tabs strong{display:block;font-weight:500;font-size:1.15rem;line-height:1.2}
+.tabs span{font-size:.8rem;color:var(--muted)}
+.tabs a[aria-selected=true]{border-color:var(--accent)}
+.tabs a[aria-selected=true] *{color:var(--accent)}
+.tabs a[aria-selected=true]::after{content:"";position:absolute;left:30%;right:30%;bottom:-1px;height:3px;border-radius:3px 3px 0 0;background:var(--accent)}
+.btn{flex:none;min-width:5.2rem;text-align:center;font-size:.82rem;font-weight:500;border-radius:12px;padding:.45rem .9rem}
+.btn.get{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn.soon{color:var(--muted)}
+
+
+/* featured carousel */
+.car{margin:0 0 1.5rem}
+.track{display:flex;gap:1rem;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;padding:.25rem 0}
+.track::-webkit-scrollbar{display:none}
+.slide{position:relative;flex:0 0 min(86%,30rem);height:13rem;border-radius:22px;overflow:hidden;scroll-snap-align:start;color:#fff;padding:1.25rem;display:flex;align-items:flex-end;box-shadow:var(--shadow);
+  background:radial-gradient(18rem 14rem at 85% 20%,var(--c),transparent 70%),linear-gradient(135deg,color-mix(in srgb,var(--c) 55%,#000),#0b0f1a)}
+.slide .big{position:absolute;right:1.25rem;top:1.25rem;width:92px;height:92px;border-radius:22px;box-shadow:0 16px 40px -8px rgba(0,0,0,.6);transform:rotate(6deg);transition:transform .4s}
+.slide:hover .big{transform:rotate(0) scale(1.05)}
+.slide .k{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;opacity:.85}
+.slide h3{margin:.2rem 0;font-size:1.35rem;font-weight:700;max-width:70%}
+.slide p{margin:0;opacity:.88;font-size:.88rem;max-width:72%}
+.dots{display:flex;gap:.35rem;justify-content:center;margin-top:.75rem}
+.dots b{width:8px;height:8px;border-radius:99px;background:var(--line);transition:.3s;cursor:pointer}
+.dots b.on{width:22px;background:var(--accent)}
+@media (max-width:480px){.slide{height:12rem}.slide .big{width:72px;height:72px}}
+.panel{padding:1.5rem 0 1rem}.panel[hidden]{display:none}
+h2{font-size:1.3rem;font-weight:500;margin:.5rem 0 .2rem}
 .sub{color:var(--muted);margin:0 0 1rem;font-size:.9rem}
-
-/* app rows */
 .list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,24rem),1fr));gap:.25rem 1.5rem}
-.row{display:flex;align-items:center;gap:1rem;padding:.75rem .5rem;border-radius:12px;transition:background .15s}
+.row{display:flex;align-items:center;gap:1rem;padding:.75rem .5rem;border-radius:14px;transition:background .15s;opacity:0;transform:translateY(8px);animation:in .45s ease forwards}
 .row:hover{background:var(--hover)}
-.row img{width:64px;height:64px;border-radius:14px;box-shadow:var(--shadow);flex:none;transition:transform .2s}
-.row:hover img{transform:scale(1.05)}
+.row img{width:64px;height:64px;border-radius:15px;box-shadow:var(--shadow);flex:none;transition:transform .25s}
+.row:hover img{transform:scale(1.06) rotate(-2deg)}
+@keyframes in{to{opacity:1;transform:none}}
 .meta{flex:1;min-width:0}
 .meta h3{margin:0;font-size:.98rem;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.meta p{margin:.1rem 0 0;font-size:.85rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.btn{flex:none;font-size:.85rem;font-weight:500;border-radius:999px;padding:.4rem 1rem;white-space:nowrap}
-.get{background:var(--accent);color:var(--accent-ink)}
-.get:hover{filter:brightness(1.08);box-shadow:var(--shadow)}
-.soon{background:var(--chip);color:var(--muted)}
-
-/* featured game */
-.feature{position:relative;overflow:hidden;border-radius:20px;padding:1.75rem;color:#fff;margin-bottom:1rem;
-  background:radial-gradient(circle at 80% 20%,#3b2d7a 0,#1a1440 45%,#0b0a22 100%);box-shadow:var(--shadow)}
-.feature::before{content:"";position:absolute;inset:0;opacity:.55;background-image:
-  radial-gradient(1.5px 1.5px at 12% 30%,#fff,transparent),radial-gradient(1px 1px at 30% 70%,#fff,transparent),
-  radial-gradient(1.5px 1.5px at 55% 20%,#fff,transparent),radial-gradient(1px 1px at 70% 60%,#fff,transparent),
-  radial-gradient(1.5px 1.5px at 88% 80%,#fff,transparent),radial-gradient(1px 1px at 45% 45%,#fff,transparent)}
-.feature>*{position:relative}
-.feature .tag{display:inline-block;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;background:rgba(255,255,255,.15);padding:.2rem .6rem;border-radius:999px}
-.feature .in{display:flex;align-items:center;gap:1rem;margin-top:1rem}
-.feature img{width:72px;height:72px;border-radius:16px;box-shadow:0 4px 14px rgba(0,0,0,.4)}
-.feature h3{margin:0;font-size:1.3rem;font-weight:500}
-.feature p{margin:.2rem 0 0;opacity:.8}
-.feature .btn{margin-left:auto;background:rgba(255,255,255,.15);color:#fff}
-
-/* privacy */
+.meta p{margin:.1rem 0 0;font-size:.84rem;color:var(--muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.feature{position:relative;overflow:hidden;border-radius:20px;padding:1.75rem;color:#fff;background:radial-gradient(circle at 80% 20%,#3b2d7a,#1a1440 45%,#0b0a22);box-shadow:var(--shadow)}
+.feature .in{display:flex;align-items:center;gap:1rem;margin-top:1rem;flex-wrap:wrap}
+.feature img{width:72px;height:72px;border-radius:16px}
+.feature h3{margin:0;font-size:1.3rem;font-weight:500}.feature p{margin:.2rem 0 0;opacity:.8}
+.feature .btn{margin-left:auto;background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.25);color:#fff}
+.tag{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;background:rgba(255,255,255,.15);padding:.2rem .6rem;border-radius:999px}
 .plist{list-style:none;margin:0;padding:0;background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden}
-.plist a{display:flex;align-items:center;gap:1rem;padding:.8rem 1rem;border-top:1px solid var(--line);transition:background .15s}
-.plist li:first-child a{border-top:0}
-.plist a:hover{background:var(--hover)}
-.plist img{width:40px;height:40px;border-radius:10px;flex:none}
-.plist span{flex:1}
-.plist small{color:var(--muted)}
-.plist .go{color:var(--muted);font-size:1.2rem}
-.note{color:var(--muted);font-size:.85rem;margin-top:1rem}
-
-footer{margin:2.5rem 0 2rem;padding-top:1.25rem;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem;
-  display:flex;flex-wrap:wrap;justify-content:space-between;gap:.75rem}
+.plist a{display:flex;align-items:center;gap:1rem;padding:.8rem 1rem;border-top:1px solid var(--line)}
+.plist li:first-child a{border-top:0}.plist a:hover{background:var(--hover)}
+.plist img{width:40px;height:40px;border-radius:10px}.plist span{flex:1}.plist small{color:var(--muted)}
+.note{color:var(--muted);font-size:.85rem}.note a{color:var(--accent)}
+footer{margin:2.5rem 0 2rem;padding-top:1.25rem;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
 footer a{color:var(--accent)}
-
-@media (max-width:480px){
-  .hero img{width:72px;height:72px;border-radius:18px}
-  .hero h1{font-size:1.5rem}
-  .stats a{min-width:0;flex:1}
-  .feature .in{flex-wrap:wrap}
-  .feature .btn{margin-left:0}
-}
+@media (max-width:480px){.hero{padding-top:4.5rem}.hero h1{font-size:1.5rem}.tabs a{flex:1;min-width:0}.btn{min-width:4.4rem}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}.row{opacity:1;transform:none}.track{scroll-behavior:auto}}
 </style>
 </head>
 <body>
-<div class="aurora" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+<div class="lang" role="group" aria-label="Language"><button data-lang="en">EN</button><button data-lang="tr">TR</button></div>
 
 <div class="wrap">
-
 <header class="hero">
-  <img src="/img/mark.webp" alt="Kont Technology logo" width="88" height="88">
-  <div>
-    <h1>Kont Technology</h1>
-    <div class="dev">Android developer</div>
-    <p>Small, honest utilities and puzzles. No accounts, no sign-in.</p>
-  </div>
+  <div class="logo"><img src="img/mark.webp" alt="Kont Technology" width="88" height="88"></div>
+  <div><h1 data-i18n="title">Kont Technology</h1><div class="role" data-i18n="role"></div><p data-i18n="tagline"></p></div>
 </header>
-<nav class="stats" role="tablist">
-  <a href="#apps" role="tab" aria-selected="true"><strong>9</strong><span>Apps</span></a>
-  <a href="#games" role="tab" aria-selected="false"><strong>1</strong><span>Game</span></a>
-  <a href="#privacy" role="tab" aria-selected="false"><strong>10</strong><span>Privacy</span></a>
+<nav class="tabs" role="tablist">
+  <a class="chip" href="#apps" role="tab"><strong>9</strong><span data-i18n="apps"></span></a>
+  <a class="chip" href="#games" role="tab"><strong>1</strong><span data-i18n="game"></span></a>
+  <a class="chip" href="#privacy" role="tab"><strong>10</strong><span data-i18n="privacy"></span></a>
 </nav>
 
-<section class="panel" id="apps" role="tabpanel">
-  <h2>Apps</h2>
-  <p class="sub">Simple tools that do one job well.</p>
-  <ul class="list">
-    <li><a class="row" href="https://play.google.com/store/apps/details?id=com.kont.bubblelevel"><img src="/img/bubblelevel.webp" alt="" width="64" height="64"><div class="meta"><h3>Bubble Level: Spirit Level</h3><p>Level surfaces and measure angles</p></div><span class="btn get">Get</span></a></li>
-    <li><a class="row" href="https://play.google.com/store/apps/details?id=com.kont.compass"><img src="/img/compass.webp" alt="" width="64" height="64"><div class="meta"><h3>Compass: Digital Compass</h3><p>A clean compass with a clear heading</p></div><span class="btn get">Get</span></a></li>
-    <li><a class="row" href="https://play.google.com/store/apps/details?id=com.kont.soundmeter"><img src="/img/soundmeter.webp" alt="" width="64" height="64"><div class="meta"><h3>Sound Meter: Decibel Meter</h3><p>Measure noise levels in decibels</p></div><span class="btn get">Get</span></a></li>
-    <li><div class="row"><img src="/img/pdftools.webp" alt="" width="64" height="64"><div class="meta"><h3>PDF Tools: Merge, Sign, Split</h3><p>Merge, split and sign PDFs</p></div><span class="btn soon">Soon</span></div></li>
-    <li><div class="row"><img src="/img/qibla.webp" alt="" width="64" height="64"><div class="meta"><h3>Qibla Compass: Qibla Finder</h3><p>Find the Qibla direction</p></div><span class="btn soon">Soon</span></div></li>
-    <li><div class="row"><img src="/img/tuner.webp" alt="" width="64" height="64"><div class="meta"><h3>Tuner &amp; Metronome: Guitar</h3><p>Tuner and metronome in one</p></div><span class="btn soon">Soon</span></div></li>
-    <li><div class="row"><img src="/img/tasbih.webp" alt="" width="64" height="64"><div class="meta"><h3>Tasbih Counter: Dhikr Tally</h3><p>A simple dhikr counter</p></div><span class="btn soon">Soon</span></div></li>
-    <li><div class="row"><img src="/img/phonetest.webp" alt="" width="64" height="64"><div class="meta"><h3>Phone Test: Hardware Check</h3><p>Check your phone's hardware</p></div><span class="btn soon">Soon</span></div></li>
-    <li><div class="row"><img src="/img/photoresizer.webp" alt="" width="64" height="64"><div class="meta"><h3>Photo Resizer: Compress to KB</h3><p>Shrink photos to an exact size</p></div><span class="btn soon">Soon</span></div></li>
-  </ul>
-</section>
+<section class="panel" id="apps"><h2 data-i18n="featured"></h2><p class="sub" data-i18n="appsSub"></p>
+  <div class="car"><div class="track" id="track"></div><div class="dots" id="dots"></div></div>
+  <h2 data-i18n="apps"></h2><ul class="list" id="appList"></ul></section>
+<section class="panel" id="games"><h2 data-i18n="games"></h2><p class="sub" data-i18n="gamesSub"></p><div id="gameBox"></div></section>
+<section class="panel" id="privacy"><h2 data-i18n="privacy"></h2><p class="sub" data-i18n="privacySub"></p><ul class="plist" id="privList"></ul>
+  <p class="note"><span data-i18n="dataQ"></span> <a href="mailto:konttechnology@gmail.com">konttechnology@gmail.com</a></p></section>
 
-<section class="panel" id="games" role="tabpanel">
-  <h2>Games</h2>
-  <p class="sub">Calm puzzles for a quiet moment.</p>
-  <div class="feature">
-    <span class="tag">Coming soon</span>
-    <div class="in">
-      <img src="/img/starwise.webp" alt="" width="72" height="72">
-      <div><h3>Starwise: Star Battle Logic</h3><p>Place the stars. One per row, column and region.</p></div>
-      <span class="btn">Soon</span>
-    </div>
-  </div>
-</section>
-
-<section class="panel" id="privacy" role="tabpanel">
-  <h2>Privacy</h2>
-  <p class="sub">Every app has its own privacy policy.</p>
-  <ul class="plist">
-    <li><a href="/bubblelevel-privacy/"><img src="/img/bubblelevel.webp" alt="" width="40" height="40"><span>Bubble Level<br><small>Privacy policy</small></span><b class="go">&rsaquo;</b></a></li>
-    <li><a href="/compass-privacy/"><img src="/img/compass.webp" alt="" width="40" height="40"><span>Compass<br><small>Privacy policy</small></span><b class="go">&rsaquo;</b></a></li>
-    <li><a href="/soundmeter-privacy/"><img src="/img/soundmeter.webp" alt="" width="40" height="40"><span>Sound Meter<br><small>Privacy policy</small></span><b class="go">&rsaquo;</b></a></li>
-    <li><a href="/pdftools-privacy/"><img src="/img/pdftools.webp" alt="" width="40" height="40"><span>PDF Tools<br><small>Privacy policy</small></span><b class="go">&rsaquo;</b></a></li>
-    <li><a href="/qibla-privacy/"><img src="/img/qibla.webp" alt="" width="40" height="40"><span>Qibla Compass<br><small>Privacy policy</small></span><b class="go">&rsaquo;</b></a></li>
-    <li><a href="/tuner-privacy/"><img src="/img/tuner.webp" alt="" width="40" height="40"><span>Tuner &amp; Metronome<br><small>Privacy policy</small></span><b class="go">&rsaquo;</b></a></li>
-    <li><a href="/tasbih-privacy/"><img src="/img/tasbih.webp" alt="" width="40" height="40"><span>Tasbih Counter<br><small>Privacy policy</small></span><b class="go">&rsaquo;</b></a></li>
-    <li><a href="/phonetest-privacy/"><img src="/img/phonetest.webp" alt="" width="40" height="40"><span>Phone Test<br><small>Privacy policy</small></span><b class="go">&rsaquo;</b></a></li>
-    <li><a href="/photoresizer-privacy/"><img src="/img/photoresizer.webp" alt="" width="40" height="40"><span>Photo Resizer<br><small>Privacy policy</small></span><b class="go">&rsaquo;</b></a></li>
-    <li><a href="/starwise-privacy/"><img src="/img/starwise.webp" alt="" width="40" height="40"><span>Starwise<br><small>Privacy policy</small></span><b class="go">&rsaquo;</b></a></li>
-  </ul>
-  <p class="note">Questions about your data? Write to <a href="mailto:konttechnology@gmail.com" style="color:var(--accent)">konttechnology@gmail.com</a>.</p>
-</section>
-
-<footer>
-  <span>&copy; 2026 Kont Technology</span>
-  <span><a href="mailto:konttechnology@gmail.com">Contact</a> &middot; <a href="/app-ads.txt">app-ads.txt</a></span>
-</footer>
-
+<footer><span>&copy; 2026 Kont Technology</span><span><a href="mailto:konttechnology@gmail.com" data-i18n="contact"></a> &middot; <a href="app-ads.txt">app-ads.txt</a></span></footer>
 </div>
 
+<script src="kont.js"></script>
 <script>
 (function(){
-  var tabs=[].slice.call(document.querySelectorAll('.stats a'));
-  var panels=[].slice.call(document.querySelectorAll('.panel'));
-  function show(id){
-    if(!document.getElementById(id)) id='apps';
-    panels.forEach(function(p){p.hidden=p.id!==id});
-    tabs.forEach(function(t){t.setAttribute('aria-selected',t.hash==='#'+id)});
+  var K=KONT,e=K.esc;
+  function render(L){
+    document.getElementById('appList').innerHTML=K.APPS.filter(function(a){return a.type==='app'}).map(function(a,i){
+      var inner='<img src="img/'+a.id+'.webp" alt="" width="64" height="64"><div class="meta"><h3>'+e(a.name[L])+'</h3><p>'+e(a.short[L])+'</p></div>'+
+        (a.play?'<span class="btn get">'+K.t('get')+'</span>':'<span class="btn soon">'+K.t('soon')+'</span>');
+      var st=' style="animation-delay:'+(i*45)+'ms"';
+      return '<li>'+(a.play?'<a class="row" href="'+K.playUrl(a)+'"'+st+'>'+inner+'</a>':'<div class="row"'+st+'>'+inner+'</div>')+'</li>';
+    }).join('');
+    var feat=['bubblelevel','compass','soundmeter','pdftools','phonetest','tuner','photoresizer','starwise'].map(function(id){return K.APPS.filter(function(a){return a.id===id})[0]});
+    document.getElementById('track').innerHTML=feat.map(function(a){
+      var inner='<img class="big" src="img/'+a.id+'.webp" alt=""><div><div class="k">'+(a.play?K.t('onPlay'):K.t('comingSoon'))+'</div><h3>'+e(a.name[L].split(':')[0])+'</h3><p>'+e(a.short[L])+'</p></div>';
+      return a.play?'<a class="slide" style="--c:'+a.color+'" href="'+K.playUrl(a)+'">'+inner+'</a>':'<div class="slide" style="--c:'+a.color+'">'+inner+'</div>'}).join('');
+    document.getElementById('dots').innerHTML=feat.map(function(_,i){return '<b data-i="'+i+'"></b>'}).join('');
+    go(idx,true);
+    var g=K.APPS.filter(function(a){return a.type==='game'})[0];
+    document.getElementById('gameBox').innerHTML='<div class="feature"><span class="tag">'+K.t('comingSoon')+'</span><div class="in"><img src="img/'+g.id+'.webp" alt=""><div><h3>'+e(g.name[L])+'</h3><p>'+e(g.short[L])+'</p></div><span class="btn">'+K.t('soon')+'</span></div></div>';
+    document.getElementById('privList').innerHTML=K.APPS.map(function(a){
+      return '<li><a href="'+a.id+'-privacy/"><img src="img/'+a.id+'.webp" alt=""><span>'+e(a.name[L].split(':')[0])+'<br><small>'+K.t('policy')+'</small></span>&rsaquo;</a></li>';
+    }).join('');
   }
-  tabs.forEach(function(t){t.addEventListener('click',function(e){
-    e.preventDefault();show(t.hash.slice(1));history.replaceState(null,'',t.hash);
-  })});
+  var tr=document.getElementById('track'),idx=0,timer;
+  function go(i,quiet){var sl=tr.children;if(!sl.length)return;idx=(i+sl.length)%sl.length;if(!quiet)tr.scrollTo({left:sl[idx].offsetLeft-tr.offsetLeft,behavior:'smooth'});
+    [].forEach.call(document.querySelectorAll('#dots b'),function(d,j){d.className=j===idx?'on':''})}
+  document.getElementById('dots').addEventListener('click',function(ev){if(ev.target.dataset.i){go(+ev.target.dataset.i);restart()}});
+  tr.addEventListener('scroll',function(){var sl=tr.children,best=0,d=1e9;for(var i=0;i<sl.length;i++){var dd=Math.abs(sl[i].offsetLeft-tr.offsetLeft-tr.scrollLeft);if(dd<d){d=dd;best=i}}if(best!==idx){idx=best;go(idx,true)}},{passive:true});
+  function restart(){clearInterval(timer);if(!matchMedia('(prefers-reduced-motion: reduce)').matches)timer=setInterval(function(){if(!document.hidden&&!document.getElementById('apps').hidden)go(idx+1)},4200)}
+  tr.addEventListener('pointerenter',function(){clearInterval(timer)});tr.addEventListener('pointerleave',restart);
+  tr.addEventListener('touchstart',function(){clearInterval(timer)},{passive:true});tr.addEventListener('touchend',restart);
+  K.onChange(render);K.apply();restart();
+  var tabs=[].slice.call(document.querySelectorAll('.tabs a')),panels=[].slice.call(document.querySelectorAll('.panel'));
+  function show(id){if(!document.getElementById(id))id='apps';panels.forEach(function(p){p.hidden=p.id!==id});tabs.forEach(function(t){t.setAttribute('aria-selected',t.hash==='#'+id)})}
+  tabs.forEach(function(t){t.addEventListener('click',function(ev){ev.preventDefault();show(t.hash.slice(1));history.replaceState(null,'',t.hash)})});
   show(location.hash.slice(1));
-  if(location.hash) setTimeout(function(){window.scrollTo(0,0)},0);
-  window.addEventListener('hashchange',function(){show(location.hash.slice(1));window.scrollTo(0,0)});
 })();
 </script>
 </body>
