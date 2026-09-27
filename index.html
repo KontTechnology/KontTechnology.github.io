@@ -4,65 +4,215 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Kont Technology</title>
+<meta name="description" content="Small, honest Android utilities and puzzles by Kont Technology. No accounts, no sign-in.">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-:root{color-scheme:light dark}
-body{margin:0;padding:3rem 1.25rem;font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#f2f5f9;color:#1c2b3a}
-.wrap{max-width:44rem;margin:0 auto}
-h1{font-size:1.9rem;margin:0 0 .35rem;color:#2f5d8c}
-.sub{color:#5b6b7c;margin:0 0 2.5rem}
-h2{font-size:1.05rem;margin:2.5rem 0 .75rem;color:#2f5d8c}
-ul{list-style:none;padding:0;margin:0}
-li{padding:.6rem 0;border-bottom:1px solid #dde4ec}
-li:last-child{border-bottom:0}
-a{color:#2f5d8c}
-footer{margin-top:3rem;padding-top:1.25rem;border-top:1px solid #dde4ec;color:#5b6b7c;font-size:.9rem}
-@media(prefers-color-scheme:dark){
-body{background:#12191f;color:#e6edf3}
-h1,h2,a{color:#7fb3e8}
-li{border-color:#243039}
-footer{border-color:#243039;color:#9fb0bf}
+:root{
+  color-scheme:light dark;
+  --bg:#ffffff;--surface:#ffffff;--ink:#202124;--muted:#5f6368;--line:#e8eaed;
+  --accent:#01875f;--accent-ink:#ffffff;--tab:#01875f;--chip:#f1f3f4;--hover:#f6f8f9;
+  --navy:#0d3b73;--teal:#1fb6cc;--orange:#f39c1f;
+  --shadow:0 1px 2px rgba(60,64,67,.3),0 1px 3px 1px rgba(60,64,67,.15);
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#131314;--surface:#1e1f20;--ink:#e3e3e3;--muted:#a8abae;--line:#2d2f31;
+        --accent:#4fd6a5;--accent-ink:#00382a;--tab:#4fd6a5;--chip:#2a2b2d;--hover:#1b1c1d;
+        --shadow:0 1px 3px rgba(0,0,0,.6)}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 Roboto,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:62rem;margin:0 auto;padding:0 1rem}
+
+/* top bar */
+.top{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;gap:.75rem;height:64px}
+.bar img{width:36px;height:36px;border-radius:9px;background:#fff}
+.bar b{font-size:1.25rem;font-weight:500;letter-spacing:-.01em}
+.bar b span{color:var(--muted);font-weight:400}
+
+/* tabs */
+.tabs{display:flex;gap:.25rem;overflow-x:auto;scrollbar-width:none;margin:0 -1rem;padding:0 1rem}
+.tabs::-webkit-scrollbar{display:none}
+.tabs a{position:relative;padding:.85rem 1rem;font-weight:500;color:var(--muted);white-space:nowrap;border-radius:8px 8px 0 0}
+.tabs a:hover{background:var(--hover);color:var(--ink)}
+.tabs a[aria-selected=true]{color:var(--tab)}
+.tabs a[aria-selected=true]::after{content:"";position:absolute;left:1rem;right:1rem;bottom:0;height:3px;border-radius:3px 3px 0 0;background:var(--tab)}
+
+/* hero */
+.hero{display:flex;align-items:center;gap:1.25rem;padding:2rem 0 .5rem}
+.hero img{width:88px;height:88px;border-radius:22px;background:#fff;box-shadow:var(--shadow);padding:6px;flex:none}
+.hero h1{margin:0;font-size:1.9rem;font-weight:500;line-height:1.2}
+.hero .dev{color:var(--accent);font-weight:500;margin-top:.15rem}
+.hero p{margin:.35rem 0 0;color:var(--muted)}
+.stats{display:flex;gap:0;margin:1.25rem 0 0;padding:0;list-style:none}
+.stats li{padding:0 1.25rem;border-left:1px solid var(--line);text-align:center}
+.stats li:first-child{padding-left:0;border-left:0;text-align:left}
+.stats strong{display:block;font-weight:500}
+.stats span{font-size:.8rem;color:var(--muted)}
+
+/* sections */
+.panel{padding:1.25rem 0 1rem}
+.panel[hidden]{display:none}
+h2{font-size:1.3rem;font-weight:500;margin:1rem 0 .25rem}
+.sub{color:var(--muted);margin:0 0 1rem;font-size:.9rem}
+
+/* app rows */
+.list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,24rem),1fr));gap:.25rem 1.5rem}
+.row{display:flex;align-items:center;gap:1rem;padding:.75rem .5rem;border-radius:12px;transition:background .15s}
+.row:hover{background:var(--hover)}
+.row img{width:64px;height:64px;border-radius:14px;box-shadow:var(--shadow);flex:none;transition:transform .2s}
+.row:hover img{transform:scale(1.05)}
+.meta{flex:1;min-width:0}
+.meta h3{margin:0;font-size:.98rem;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.meta p{margin:.1rem 0 0;font-size:.85rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.btn{flex:none;font-size:.85rem;font-weight:500;border-radius:999px;padding:.4rem 1rem;white-space:nowrap}
+.get{background:var(--accent);color:var(--accent-ink)}
+.get:hover{filter:brightness(1.08);box-shadow:var(--shadow)}
+.soon{background:var(--chip);color:var(--muted)}
+
+/* featured game */
+.feature{position:relative;overflow:hidden;border-radius:20px;padding:1.75rem;color:#fff;margin-bottom:1rem;
+  background:radial-gradient(circle at 80% 20%,#3b2d7a 0,#1a1440 45%,#0b0a22 100%);box-shadow:var(--shadow)}
+.feature::before{content:"";position:absolute;inset:0;opacity:.55;background-image:
+  radial-gradient(1.5px 1.5px at 12% 30%,#fff,transparent),radial-gradient(1px 1px at 30% 70%,#fff,transparent),
+  radial-gradient(1.5px 1.5px at 55% 20%,#fff,transparent),radial-gradient(1px 1px at 70% 60%,#fff,transparent),
+  radial-gradient(1.5px 1.5px at 88% 80%,#fff,transparent),radial-gradient(1px 1px at 45% 45%,#fff,transparent)}
+.feature>*{position:relative}
+.feature .tag{display:inline-block;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;background:rgba(255,255,255,.15);padding:.2rem .6rem;border-radius:999px}
+.feature .in{display:flex;align-items:center;gap:1rem;margin-top:1rem}
+.feature img{width:72px;height:72px;border-radius:16px;box-shadow:0 4px 14px rgba(0,0,0,.4)}
+.feature h3{margin:0;font-size:1.3rem;font-weight:500}
+.feature p{margin:.2rem 0 0;opacity:.8}
+.feature .btn{margin-left:auto;background:rgba(255,255,255,.15);color:#fff}
+
+/* privacy */
+.plist{list-style:none;margin:0;padding:0;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.plist a{display:flex;align-items:center;gap:1rem;padding:.8rem 1rem;border-top:1px solid var(--line);transition:background .15s}
+.plist li:first-child a{border-top:0}
+.plist a:hover{background:var(--hover)}
+.plist img{width:40px;height:40px;border-radius:10px;flex:none}
+.plist span{flex:1}
+.plist small{color:var(--muted)}
+.plist .go{color:var(--muted);font-size:1.2rem}
+.note{color:var(--muted);font-size:.85rem;margin-top:1rem}
+
+footer{margin:2.5rem 0 2rem;padding-top:1.25rem;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem;
+  display:flex;flex-wrap:wrap;justify-content:space-between;gap:.75rem}
+footer a{color:var(--accent)}
+
+@media (max-width:480px){
+  .hero img{width:72px;height:72px;border-radius:18px}
+  .hero h1{font-size:1.5rem}
+  .stats li{padding:0 .9rem}
+  .feature .in{flex-wrap:wrap}
+  .feature .btn{margin-left:0}
 }
 </style>
 </head>
 <body>
+
+<div class="top">
+  <div class="wrap">
+    <div class="bar"><img src="/img/mark.webp" alt="" width="36" height="36"><b>Kont <span>Technology</span></b></div>
+    <nav class="tabs" role="tablist">
+      <a href="#apps" role="tab" aria-selected="true">Apps</a>
+      <a href="#games" role="tab" aria-selected="false">Games</a>
+      <a href="#privacy" role="tab" aria-selected="false">Privacy</a>
+    </nav>
+  </div>
+</div>
+
 <div class="wrap">
 
-<h1>Kont Technology</h1>
-<p class="sub">Small, honest Android utilities and puzzles. No accounts, no sign-in.</p>
-
-<h2>Apps</h2>
-<ul>
-<li><a href="https://play.google.com/store/apps/details?id=com.kont.bubblelevel">Bubble Level: Spirit Level</a></li>
-<li><a href="https://play.google.com/store/apps/details?id=com.kont.compass">Compass: Digital Compass</a></li>
-<li><a href="https://play.google.com/store/apps/details?id=com.kont.soundmeter">Sound Meter: Decibel Meter</a></li>
-<li>PDF Tools: Merge, Sign, Split</li>
-<li>Qibla Compass: Qibla Finder</li>
-<li>Tuner &amp; Metronome: Guitar</li>
-<li>Tasbih Counter: Dhikr Tally</li>
-<li>Phone Test: Hardware Check</li>
-<li>Photo Resizer: Compress to KB</li>
-<li>Starwise: Star Battle Logic</li>
+<header class="hero">
+  <img src="/img/mark.webp" alt="Kont Technology logo" width="88" height="88">
+  <div>
+    <h1>Kont Technology</h1>
+    <div class="dev">Android developer</div>
+    <p>Small, honest utilities and puzzles. No accounts, no sign-in.</p>
+  </div>
+</header>
+<ul class="stats">
+  <li><strong>9</strong><span>Apps</span></li>
+  <li><strong>1</strong><span>Game</span></li>
+  <li><strong>0</strong><span>Accounts needed</span></li>
 </ul>
 
-<h2>Privacy policies</h2>
-<ul>
-<li><a href="https://konttechnology.github.io/bubblelevel-privacy/">Bubble Level</a></li>
-<li><a href="https://konttechnology.github.io/compass-privacy/">Compass</a></li>
-<li><a href="https://konttechnology.github.io/soundmeter-privacy/">Sound Meter</a></li>
-<li><a href="https://konttechnology.github.io/pdftools-privacy/">PDF Tools</a></li>
-<li><a href="https://konttechnology.github.io/qibla-privacy/">Qibla Compass</a></li>
-<li><a href="https://konttechnology.github.io/tuner-privacy/">Tuner &amp; Metronome</a></li>
-<li><a href="https://konttechnology.github.io/tasbih-privacy/">Tasbih Counter</a></li>
-<li><a href="https://konttechnology.github.io/phonetest-privacy/">Phone Test</a></li>
-<li><a href="https://konttechnology.github.io/photoresizer-privacy/">Photo Resizer</a></li>
-<li><a href="https://konttechnology.github.io/starwise-privacy/">Starwise</a></li>
-</ul>
+<section class="panel" id="apps" role="tabpanel">
+  <h2>Apps</h2>
+  <p class="sub">Simple tools that do one job well.</p>
+  <ul class="list">
+    <li><a class="row" href="https://play.google.com/store/apps/details?id=com.kont.bubblelevel"><img src="/img/bubblelevel.webp" alt="" width="64" height="64"><div class="meta"><h3>Bubble Level: Spirit Level</h3><p>Level surfaces and measure angles</p></div><span class="btn get">Get</span></a></li>
+    <li><a class="row" href="https://play.google.com/store/apps/details?id=com.kont.compass"><img src="/img/compass.webp" alt="" width="64" height="64"><div class="meta"><h3>Compass: Digital Compass</h3><p>A clean compass with a clear heading</p></div><span class="btn get">Get</span></a></li>
+    <li><a class="row" href="https://play.google.com/store/apps/details?id=com.kont.soundmeter"><img src="/img/soundmeter.webp" alt="" width="64" height="64"><div class="meta"><h3>Sound Meter: Decibel Meter</h3><p>Measure noise levels in decibels</p></div><span class="btn get">Get</span></a></li>
+    <li><div class="row"><img src="/img/pdftools.webp" alt="" width="64" height="64"><div class="meta"><h3>PDF Tools: Merge, Sign, Split</h3><p>Merge, split and sign PDFs</p></div><span class="btn soon">Soon</span></div></li>
+    <li><div class="row"><img src="/img/qibla.webp" alt="" width="64" height="64"><div class="meta"><h3>Qibla Compass: Qibla Finder</h3><p>Find the Qibla direction</p></div><span class="btn soon">Soon</span></div></li>
+    <li><div class="row"><img src="/img/tuner.webp" alt="" width="64" height="64"><div class="meta"><h3>Tuner &amp; Metronome: Guitar</h3><p>Tuner and metronome in one</p></div><span class="btn soon">Soon</span></div></li>
+    <li><div class="row"><img src="/img/tasbih.webp" alt="" width="64" height="64"><div class="meta"><h3>Tasbih Counter: Dhikr Tally</h3><p>A simple dhikr counter</p></div><span class="btn soon">Soon</span></div></li>
+    <li><div class="row"><img src="/img/phonetest.webp" alt="" width="64" height="64"><div class="meta"><h3>Phone Test: Hardware Check</h3><p>Check your phone's hardware</p></div><span class="btn soon">Soon</span></div></li>
+    <li><div class="row"><img src="/img/photoresizer.webp" alt="" width="64" height="64"><div class="meta"><h3>Photo Resizer: Compress to KB</h3><p>Shrink photos to an exact size</p></div><span class="btn soon">Soon</span></div></li>
+  </ul>
+</section>
+
+<section class="panel" id="games" role="tabpanel">
+  <h2>Games</h2>
+  <p class="sub">Calm puzzles for a quiet moment.</p>
+  <div class="feature">
+    <span class="tag">Coming soon</span>
+    <div class="in">
+      <img src="/img/starwise.webp" alt="" width="72" height="72">
+      <div><h3>Starwise: Star Battle Logic</h3><p>Place the stars. One per row, column and region.</p></div>
+      <span class="btn">Soon</span>
+    </div>
+  </div>
+</section>
+
+<section class="panel" id="privacy" role="tabpanel">
+  <h2>Privacy</h2>
+  <p class="sub">Every app has its own privacy policy.</p>
+  <ul class="plist">
+    <li><a href="/bubblelevel-privacy/"><img src="/img/bubblelevel.webp" alt="" width="40" height="40"><span>Bubble Level<br><small>Privacy policy</small></span><b class="go">&rsaquo;</b></a></li>
+    <li><a href="/compass-privacy/"><img src="/img/compass.webp" alt="" width="40" height="40"><span>Compass<br><small>Privacy policy</small></span><b class="go">&rsaquo;</b></a></li>
+    <li><a href="/soundmeter-privacy/"><img src="/img/soundmeter.webp" alt="" width="40" height="40"><span>Sound Meter<br><small>Privacy policy</small></span><b class="go">&rsaquo;</b></a></li>
+    <li><a href="/pdftools-privacy/"><img src="/img/pdftools.webp" alt="" width="40" height="40"><span>PDF Tools<br><small>Privacy policy</small></span><b class="go">&rsaquo;</b></a></li>
+    <li><a href="/qibla-privacy/"><img src="/img/qibla.webp" alt="" width="40" height="40"><span>Qibla Compass<br><small>Privacy policy</small></span><b class="go">&rsaquo;</b></a></li>
+    <li><a href="/tuner-privacy/"><img src="/img/tuner.webp" alt="" width="40" height="40"><span>Tuner &amp; Metronome<br><small>Privacy policy</small></span><b class="go">&rsaquo;</b></a></li>
+    <li><a href="/tasbih-privacy/"><img src="/img/tasbih.webp" alt="" width="40" height="40"><span>Tasbih Counter<br><small>Privacy policy</small></span><b class="go">&rsaquo;</b></a></li>
+    <li><a href="/phonetest-privacy/"><img src="/img/phonetest.webp" alt="" width="40" height="40"><span>Phone Test<br><small>Privacy policy</small></span><b class="go">&rsaquo;</b></a></li>
+    <li><a href="/photoresizer-privacy/"><img src="/img/photoresizer.webp" alt="" width="40" height="40"><span>Photo Resizer<br><small>Privacy policy</small></span><b class="go">&rsaquo;</b></a></li>
+    <li><a href="/starwise-privacy/"><img src="/img/starwise.webp" alt="" width="40" height="40"><span>Starwise<br><small>Privacy policy</small></span><b class="go">&rsaquo;</b></a></li>
+  </ul>
+  <p class="note">Questions about your data? Write to <a href="mailto:konttechnology@gmail.com" style="color:var(--accent)">konttechnology@gmail.com</a>.</p>
+</section>
 
 <footer>
-Contact: <a href="mailto:konttechnology@gmail.com">konttechnology@gmail.com</a><br>
-<a href="https://konttechnology.github.io/app-ads.txt">app-ads.txt</a>
+  <span>&copy; 2026 Kont Technology</span>
+  <span><a href="mailto:konttechnology@gmail.com">Contact</a> &middot; <a href="/app-ads.txt">app-ads.txt</a></span>
 </footer>
 
 </div>
+
+<script>
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('.tabs a'));
+  var panels=[].slice.call(document.querySelectorAll('.panel'));
+  function show(id){
+    if(!document.getElementById(id)) id='apps';
+    panels.forEach(function(p){p.hidden=p.id!==id});
+    tabs.forEach(function(t){t.setAttribute('aria-selected',t.hash==='#'+id)});
+  }
+  tabs.forEach(function(t){t.addEventListener('click',function(e){
+    e.preventDefault();show(t.hash.slice(1));history.replaceState(null,'',t.hash);
+  })});
+  show(location.hash.slice(1));
+  if(location.hash) setTimeout(function(){window.scrollTo(0,0)},0);
+  window.addEventListener('hashchange',function(){show(location.hash.slice(1));window.scrollTo(0,0)});
+})();
+</script>
 </body>
 </html>
