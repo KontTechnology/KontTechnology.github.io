@@ -48,32 +48,22 @@ a{color:inherit;text-decoration:none}
 @media (prefers-reduced-motion:reduce){.aurora i{animation:none}}
 .wrap{max-width:62rem;margin:0 auto;padding:0 1rem}
 
-/* top bar */
-.top{position:sticky;top:0;z-index:5;background:var(--topbg);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-.bar{display:flex;align-items:center;gap:.75rem;height:64px}
-.bar img{width:36px;height:36px;border-radius:9px;background:#fff}
-.bar b{font-size:1.25rem;font-weight:500;letter-spacing:-.01em}
-.bar b span{color:var(--muted);font-weight:400}
-
-/* tabs */
-.tabs{display:flex;gap:.25rem;overflow-x:auto;scrollbar-width:none;margin:0 -1rem;padding:0 1rem}
-.tabs::-webkit-scrollbar{display:none}
-.tabs a{position:relative;padding:.85rem 1rem;font-weight:500;color:var(--muted);white-space:nowrap;border-radius:8px 8px 0 0}
-.tabs a:hover{background:var(--hover);color:var(--ink)}
-.tabs a[aria-selected=true]{color:var(--tab)}
-.tabs a[aria-selected=true]::after{content:"";position:absolute;left:1rem;right:1rem;bottom:0;height:3px;border-radius:3px 3px 0 0;background:var(--tab)}
-
 /* hero */
-.hero{display:flex;align-items:center;gap:1.25rem;padding:2rem 0 .5rem}
+.hero{display:flex;align-items:center;gap:1.25rem;padding:3rem 0 .5rem}
 .hero img{width:88px;height:88px;border-radius:22px;background:#fff;box-shadow:var(--shadow);padding:6px;flex:none}
 .hero h1{margin:0;font-size:1.9rem;font-weight:500;line-height:1.2}
 .hero .dev{color:var(--accent);font-weight:500;margin-top:.15rem}
 .hero p{margin:.35rem 0 0;color:var(--muted)}
-.stats{display:flex;gap:0;margin:1.25rem 0 0;padding:0;list-style:none}
-.stats li{padding:0 1.25rem;border-left:1px solid var(--line);text-align:center}
-.stats li:first-child{padding-left:0;border-left:0;text-align:left}
-.stats strong{display:block;font-weight:500}
+.stats{display:flex;gap:.5rem;margin:1.5rem 0 0;flex-wrap:wrap}
+.stats a{position:relative;min-width:6.5rem;padding:.7rem 1.1rem .8rem;border-radius:14px;text-align:center;
+  background:var(--topbg);border:1px solid var(--line);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+  transition:background .15s,border-color .15s,transform .15s}
+.stats a:hover{transform:translateY(-1px);border-color:var(--muted)}
+.stats strong{display:block;font-weight:500;font-size:1.15rem;line-height:1.2}
 .stats span{font-size:.8rem;color:var(--muted)}
+.stats a[aria-selected=true]{border-color:var(--tab)}
+.stats a[aria-selected=true] strong,.stats a[aria-selected=true] span{color:var(--tab)}
+.stats a[aria-selected=true]::after{content:"";position:absolute;left:30%;right:30%;bottom:-1px;height:3px;border-radius:3px 3px 0 0;background:var(--tab)}
 
 /* sections */
 .panel{padding:1.25rem 0 1rem}
@@ -128,7 +118,7 @@ footer a{color:var(--accent)}
 @media (max-width:480px){
   .hero img{width:72px;height:72px;border-radius:18px}
   .hero h1{font-size:1.5rem}
-  .stats li{padding:0 .9rem}
+  .stats a{min-width:0;flex:1}
   .feature .in{flex-wrap:wrap}
   .feature .btn{margin-left:0}
 }
@@ -136,17 +126,6 @@ footer a{color:var(--accent)}
 </head>
 <body>
 <div class="aurora" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
-
-<div class="top">
-  <div class="wrap">
-    <div class="bar"><img src="/img/mark.webp" alt="" width="36" height="36"><b>Kont <span>Technology</span></b></div>
-    <nav class="tabs" role="tablist">
-      <a href="#apps" role="tab" aria-selected="true">Apps</a>
-      <a href="#games" role="tab" aria-selected="false">Games</a>
-      <a href="#privacy" role="tab" aria-selected="false">Privacy</a>
-    </nav>
-  </div>
-</div>
 
 <div class="wrap">
 
@@ -158,11 +137,11 @@ footer a{color:var(--accent)}
     <p>Small, honest utilities and puzzles. No accounts, no sign-in.</p>
   </div>
 </header>
-<ul class="stats">
-  <li><strong>9</strong><span>Apps</span></li>
-  <li><strong>1</strong><span>Game</span></li>
-  <li><strong>0</strong><span>Accounts needed</span></li>
-</ul>
+<nav class="stats" role="tablist">
+  <a href="#apps" role="tab" aria-selected="true"><strong>9</strong><span>Apps</span></a>
+  <a href="#games" role="tab" aria-selected="false"><strong>1</strong><span>Game</span></a>
+  <a href="#privacy" role="tab" aria-selected="false"><strong>10</strong><span>Privacy</span></a>
+</nav>
 
 <section class="panel" id="apps" role="tabpanel">
   <h2>Apps</h2>
@@ -220,7 +199,7 @@ footer a{color:var(--accent)}
 
 <script>
 (function(){
-  var tabs=[].slice.call(document.querySelectorAll('.tabs a'));
+  var tabs=[].slice.call(document.querySelectorAll('.stats a'));
   var panels=[].slice.call(document.querySelectorAll('.panel'));
   function show(id){
     if(!document.getElementById(id)) id='apps';
