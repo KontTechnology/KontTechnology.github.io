@@ -11,11 +11,11 @@
 :root{color-scheme:light dark;
   --bg:#fff;--surface:#fff;--ink:#202124;--muted:#5f6368;--line:#e3e7eb;--glass:rgba(255,255,255,.72);
   --accent:#01875f;--accent-ink:#fff;--hover:rgba(0,0,0,.035);
-  --a1:#1fb6cc;--a2:#2f6fd0;--a3:#f39c1f;--a-op:.22;--shadow:0 1px 2px rgba(60,64,67,.25),0 2px 6px rgba(60,64,67,.12)}
+  --a1:#7b4dff;--a2:#1fd8ff;--a3:#ff4fa3;--a-op:.2;--shadow:0 1px 2px rgba(60,64,67,.25),0 2px 6px rgba(60,64,67,.12)}
 @media (prefers-color-scheme:dark){:root{
   --bg:#131314;--surface:#1e1f20;--ink:#e3e3e3;--muted:#a8abae;--line:#2d2f31;--glass:rgba(30,31,32,.62);
   --accent:#4fd6a5;--accent-ink:#00382a;--hover:rgba(255,255,255,.04);
-  --a1:#1f9fb8;--a2:#2a4fa8;--a3:#c77a12;--a-op:.32;--shadow:0 1px 3px rgba(0,0,0,.6)}}
+  --a1:#6a3fe6;--a2:#1ab4d6;--a3:#d93d8a;--a-op:.3;--shadow:0 1px 3px rgba(0,0,0,.6)}}
 *{box-sizing:border-box}
 body{margin:0;min-height:100vh;background:radial-gradient(var(--line) 1px,transparent 1.2px) 0 0/22px 22px fixed,var(--bg);color:var(--ink);font:15px/1.5 Roboto,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
@@ -36,7 +36,7 @@ a{color:inherit;text-decoration:none}
 .hero{display:flex;align-items:center;gap:1.25rem;padding:4rem 0 .5rem}
 .logo{position:relative;width:88px;height:88px;flex:none}
 .logo::before{content:"";position:absolute;inset:-3px;border-radius:25px;background:conic-gradient(from 0deg,var(--a1),var(--a2),var(--a3),var(--a1));animation:spin 6s linear infinite}
-.logo img{position:relative;width:88px;height:88px;border-radius:22px;background:#fff;padding:6px;display:block}
+.logo img{position:relative;width:88px;height:88px;border-radius:21px;display:block}
 @keyframes spin{to{transform:rotate(360deg)}}
 .hero h1{margin:0;font-size:1.9rem;font-weight:500;line-height:1.2}
 .role{color:var(--accent);font-weight:500}
@@ -84,6 +84,7 @@ h2{font-size:1.3rem;font-weight:500;margin:.5rem 0 .2rem}
 .meta{flex:1;min-width:0}
 .meta h3{margin:0;font-size:.98rem;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .meta p{margin:.1rem 0 0;font-size:.84rem;color:var(--muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.feature+.feature{margin-top:1rem}
 .feature{position:relative;overflow:hidden;border-radius:20px;padding:1.75rem;color:#fff;background:radial-gradient(circle at 80% 20%,#3b2d7a,#1a1440 45%,#0b0a22);box-shadow:var(--shadow)}
 .feature .in{display:flex;align-items:center;gap:1rem;margin-top:1rem;flex-wrap:wrap}
 .feature img{width:72px;height:72px;border-radius:16px}
@@ -111,9 +112,9 @@ footer a{color:var(--accent)}
   <div><h1 data-i18n="title">Kont Technology</h1><div class="role" data-i18n="role"></div><p data-i18n="tagline"></p></div>
 </header>
 <nav class="tabs" role="tablist">
-  <a class="chip" href="#apps" role="tab"><strong>9</strong><span data-i18n="apps"></span></a>
-  <a class="chip" href="#games" role="tab"><strong>1</strong><span data-i18n="game"></span></a>
-  <a class="chip" href="#privacy" role="tab"><strong>10</strong><span data-i18n="privacy"></span></a>
+  <a class="chip" href="#apps" role="tab"><strong id="nApps"></strong><span data-i18n="apps"></span></a>
+  <a class="chip" href="#games" role="tab"><strong id="nGames"></strong><span id="lGames"></span></a>
+  <a class="chip" href="#privacy" role="tab"><strong id="nPriv"></strong><span data-i18n="privacy"></span></a>
 </nav>
 
 <section class="panel" id="apps"><h2 data-i18n="featured"></h2><p class="sub" data-i18n="appsSub"></p>
@@ -137,14 +138,20 @@ footer a{color:var(--accent)}
       var st=' style="animation-delay:'+(i*45)+'ms"';
       return '<li>'+(a.play?'<a class="row" href="'+K.playUrl(a)+'"'+st+'>'+inner+'</a>':'<div class="row"'+st+'>'+inner+'</div>')+'</li>';
     }).join('');
-    var feat=['bubblelevel','compass','soundmeter','pdftools','phonetest','tuner','photoresizer','starwise'].map(function(id){return K.APPS.filter(function(a){return a.id===id})[0]});
+    var feat=['hushbrook','bubblelevel','compass','soundmeter','pdftools','phonetest','tuner','photoresizer','starwise'].map(function(id){return K.APPS.filter(function(a){return a.id===id})[0]});
     document.getElementById('track').innerHTML=feat.map(function(a){
       var inner='<img class="big" src="img/'+a.id+'.webp" alt=""><div><div class="k">'+(a.play?K.t('onPlay'):K.t('comingSoon'))+'</div><h3>'+e(a.name[L].split(':')[0])+'</h3><p>'+e(a.short[L])+'</p></div>';
       return a.play?'<a class="slide" style="--c:'+a.color+'" href="'+K.playUrl(a)+'">'+inner+'</a>':'<div class="slide" style="--c:'+a.color+'">'+inner+'</div>'}).join('');
     document.getElementById('dots').innerHTML=feat.map(function(_,i){return '<b data-i="'+i+'"></b>'}).join('');
     go(idx,true);
-    var g=K.APPS.filter(function(a){return a.type==='game'})[0];
-    document.getElementById('gameBox').innerHTML='<div class="feature"><span class="tag">'+K.t('comingSoon')+'</span><div class="in"><img src="img/'+g.id+'.webp" alt=""><div><h3>'+e(g.name[L])+'</h3><p>'+e(g.short[L])+'</p></div><span class="btn">'+K.t('soon')+'</span></div></div>';
+    var games=K.APPS.filter(function(a){return a.type==='game'});
+    document.getElementById('gameBox').innerHTML=games.map(function(g){
+      var inner='<span class="tag">'+(g.play?K.t('onPlay'):K.t('comingSoon'))+'</span><div class="in"><img src="img/'+g.id+'.webp" alt=""><div><h3>'+e(g.name[L])+'</h3><p>'+e(g.short[L])+'</p></div><span class="btn">'+(g.play?K.t('get'):K.t('soon'))+'</span></div>';
+      return g.play?'<a class="feature" href="'+K.playUrl(g)+'">'+inner+'</a>':'<div class="feature">'+inner+'</div>'}).join('');
+    document.getElementById('nApps').textContent=K.APPS.length-games.length;
+    document.getElementById('nGames').textContent=games.length;
+    document.getElementById('lGames').textContent=K.t(games.length===1?'game':'games');
+    document.getElementById('nPriv').textContent=K.APPS.length;
     document.getElementById('privList').innerHTML=K.APPS.map(function(a){
       return '<li><a href="'+a.id+'-privacy/"><img src="img/'+a.id+'.webp" alt=""><span>'+e(a.name[L].split(':')[0])+'<br><small>'+K.t('policy')+'</small></span>&rsaquo;</a></li>';
     }).join('');

@@ -28,6 +28,9 @@ window.KONT = (function () {
     { id: 'photoresizer', type: 'app', color: '#24337d', play: null,
       name: { en: 'Photo Resizer: Compress to KB', tr: 'Fotoğraf Küçültücü: KB Ayarla' },
       short: { en: 'Shrink photos to an exact size in KB.', tr: 'Fotoğrafı istenen KB boyutuna küçültün.' } },
+    { id: 'hushbrook', type: 'game', color: '#2e8a6e', play: null,
+      name: { en: 'Hushbrook: Mahjong Solitaire', tr: 'Hushbrook: Mahjong Solitaire' },
+      short: { en: 'Calm Mahjong by the quiet water. One tap, a new board every day.', tr: 'Sakin suyun kıyısında Mahjong. Tek dokunuş, her gün yeni tahta.' } },
     { id: 'starwise', type: 'game', color: '#fbd173', play: null,
       name: { en: 'Starwise: Star Battle Logic', tr: 'Starwise: Mantık Bulmacası' },
       short: { en: 'Calm, fair logic puzzles under the stars. No guessing.', tr: 'Yıldızların altında sakin, adil mantık bulmacaları.' } }
