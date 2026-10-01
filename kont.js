@@ -10,7 +10,7 @@ window.KONT = (function () {
     { id: 'soundmeter', type: 'app', color: '#eb4445', play: 'com.kont.soundmeter',
       name: { en: 'Sound Meter: Decibel Meter', tr: 'Desibel Ölçer' },
       short: { en: 'Measure noise levels in decibels.', tr: 'Gürültü seviyesini desibel olarak ölçün.' } },
-    { id: 'pdftools', type: 'app', color: '#2d5c8b', play: null,
+    { id: 'pdftools', type: 'app', color: '#2d5c8b', play: 'com.kont.pdftools',
       name: { en: 'PDF Tools: Merge, Sign, Split', tr: 'PDF Araçları: Birleştir, Böl' },
       short: { en: 'PDF reader and toolkit. Fully offline, no watermark.', tr: 'PDF okuyucu ve araç kutusu. Çevrimdışı, filigransız.' } },
     { id: 'qibla', type: 'app', color: '#bda74e', play: null,
