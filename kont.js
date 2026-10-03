@@ -31,6 +31,9 @@ window.KONT = (function () {
     { id: 'hushbrook', type: 'game', color: '#2e8a6e', play: null,
       name: { en: 'Hushbrook: Mahjong Solitaire', tr: 'Hushbrook: Mahjong Solitaire' },
       short: { en: 'Calm Mahjong by the quiet water. One tap, a new board every day.', tr: 'Sakin suyun kıyısında Mahjong. Tek dokunuş, her gün yeni tahta.' } },
+    { id: 'arrowly', type: 'game', color: '#5ce1e6', play: null,
+      name: { en: 'Arrowly: Arrow Puzzle', tr: 'Arrowly: Ok Bulmacası' },
+      short: { en: 'Tap an arrow, clear the board. Fair puzzles, eight themes.', tr: 'Oka dokun, tahtayı temizle. Adil bulmacalar, sekiz tema.' } },
     { id: 'starwise', type: 'game', color: '#fbd173', play: null,
       name: { en: 'Starwise: Star Battle Logic', tr: 'Starwise: Mantık Bulmacası' },
       short: { en: 'Calm, fair logic puzzles under the stars. No guessing.', tr: 'Yıldızların altında sakin, adil mantık bulmacaları.' } }
