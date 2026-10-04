@@ -84,12 +84,6 @@ h2{font-size:1.3rem;font-weight:500;margin:.5rem 0 .2rem}
 .meta{flex:1;min-width:0}
 .meta h3{margin:0;font-size:.98rem;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .meta p{margin:.1rem 0 0;font-size:.84rem;color:var(--muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.feature+.feature{margin-top:1rem}
-.feature{position:relative;overflow:hidden;border-radius:20px;padding:1.75rem;color:#fff;background:radial-gradient(circle at 80% 20%,#3b2d7a,#1a1440 45%,#0b0a22);box-shadow:var(--shadow)}
-.feature .in{display:flex;align-items:center;gap:1rem;margin-top:1rem;flex-wrap:wrap}
-.feature img{width:72px;height:72px;border-radius:16px}
-.feature h3{margin:0;font-size:1.3rem;font-weight:500}.feature p{margin:.2rem 0 0;opacity:.8}
-.feature .btn{margin-left:auto;background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.25);color:#fff}
 .tag{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;background:rgba(255,255,255,.15);padding:.2rem .6rem;border-radius:999px}
 .plist{list-style:none;margin:0;padding:0;background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden}
 .plist a{display:flex;align-items:center;gap:1rem;padding:.8rem 1rem;border-top:1px solid var(--line)}
@@ -122,7 +116,7 @@ footer a{color:var(--accent)}
   <h2 data-i18n="apps"></h2><ul class="list" id="appList"></ul></section>
 <section class="panel" id="games"><h2 data-i18n="games"></h2><p class="sub" data-i18n="gamesSub"></p>
   <div class="car"><div class="track" id="gTrack"></div><div class="dots" id="gDots"></div></div>
-  <div id="gameBox"></div></section>
+  <ul class="list" id="gameList"></ul></section>
 <section class="panel" id="privacy"><h2 data-i18n="privacy"></h2><p class="sub" data-i18n="privacySub"></p><ul class="plist" id="privList"></ul>
   <p class="note"><span data-i18n="dataQ"></span> <a href="mailto:konttechnology@gmail.com">konttechnology@gmail.com</a></p></section>
 
@@ -134,18 +128,17 @@ footer a{color:var(--accent)}
 (function(){
   var K=KONT,e=K.esc;
   function render(L){
-    document.getElementById('appList').innerHTML=K.APPS.filter(function(a){return a.type==='app'}).map(function(a,i){
+    function rows(list){return list.map(function(a,i){
       var inner='<img src="img/'+a.id+'.webp" alt="" width="64" height="64"><div class="meta"><h3>'+e(a.name[L])+'</h3><p>'+e(a.short[L])+'</p></div>'+
         (a.play?'<span class="btn get">'+K.t('get')+'</span>':'<span class="btn soon">'+K.t('soon')+'</span>');
       var st=' style="animation-delay:'+(i*45)+'ms"';
       return '<li>'+(a.play?'<a class="row" href="'+K.playUrl(a)+'"'+st+'>'+inner+'</a>':'<div class="row"'+st+'>'+inner+'</div>')+'</li>';
-    }).join('');
+    }).join('')}
     var apps=K.APPS.filter(function(a){return a.type==='app'}),games=K.APPS.filter(function(a){return a.type==='game'});
     function byPlay(l){return l.filter(function(a){return a.play}).concat(l.filter(function(a){return !a.play}))}
     cars.forEach(function(c){c.fill(byPlay(c.type==='app'?apps:games),L)});
-    document.getElementById('gameBox').innerHTML=games.map(function(g){
-      var inner='<span class="tag">'+(g.play?K.t('onPlay'):K.t('comingSoon'))+'</span><div class="in"><img src="img/'+g.id+'.webp" alt=""><div><h3>'+e(g.name[L])+'</h3><p>'+e(g.short[L])+'</p></div><span class="btn">'+(g.play?K.t('get'):K.t('soon'))+'</span></div>';
-      return g.play?'<a class="feature" href="'+K.playUrl(g)+'">'+inner+'</a>':'<div class="feature">'+inner+'</div>'}).join('');
+    document.getElementById('appList').innerHTML=rows(apps);
+    document.getElementById('gameList').innerHTML=rows(games);
     document.getElementById('nApps').textContent=K.APPS.length-games.length;
     document.getElementById('nGames').textContent=games.length;
     document.getElementById('nPriv').textContent=K.APPS.length;
