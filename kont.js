@@ -67,7 +67,7 @@ window.KONT = (function () {
       get: 'Yükle', soon: 'Yakında', comingSoon: 'Çok yakında', onPlay: "Google Play'de",
       policy: 'Gizlilik politikası', open: 'Aç',
       dataQ: 'Verilerinizle ilgili sorularınız için:',
-      contact: 'İletişim', all: 'Tümü', featured: 'Öne çıkan', live: 'Yayında',
+      contact: 'İletişim', all: 'Tümü', featured: 'Öne çıkanlar', live: 'Yayında',
       noAccounts: 'Hesap yok', offline: 'Çevrimdışı', noSignIn: 'Giriş yok', light: 'Hafif',
       scroll: 'Keşfet', madeWith: "Türkiye'de özenle yapıldı"
     }
