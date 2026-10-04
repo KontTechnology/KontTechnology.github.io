@@ -34,6 +34,9 @@ window.KONT = (function () {
     { id: 'arrowly', type: 'game', color: '#5ce1e6', play: null,
       name: { en: 'Arrowly: Arrow Puzzle', tr: 'Arrowly: Ok Bulmacası' },
       short: { en: 'Tap an arrow, clear the board. Fair puzzles, eight themes.', tr: 'Oka dokun, tahtayı temizle. Adil bulmacalar, sekiz tema.' } },
+    { id: 'brickwell', type: 'game', color: '#212d7d', play: null,
+      name: { en: 'Brickwell: Fair Block Puzzle', tr: 'Brickwell: Adil Blok Bulmaca' },
+      short: { en: 'Drag blocks, clear lines. Every set of pieces always fits, with undo.', tr: 'Blokları sürükle, satırları temizle. Gelen her set sığar, geri al var.' } },
     { id: 'starwise', type: 'game', color: '#fbd173', play: null,
       name: { en: 'Starwise: Star Battle Logic', tr: 'Starwise: Mantık Bulmacası' },
       short: { en: 'Calm, fair logic puzzles under the stars. No guessing.', tr: 'Yıldızların altında sakin, adil mantık bulmacaları.' } }
