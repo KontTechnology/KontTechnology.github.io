@@ -120,14 +120,16 @@ footer a{color:var(--accent)}
 <section class="panel" id="apps"><h2 data-i18n="featured"></h2><p class="sub" data-i18n="appsSub"></p>
   <div class="car"><div class="track" id="track"></div><div class="dots" id="dots"></div></div>
   <h2 data-i18n="apps"></h2><ul class="list" id="appList"></ul></section>
-<section class="panel" id="games"><h2 data-i18n="games"></h2><p class="sub" data-i18n="gamesSub"></p><div id="gameBox"></div></section>
+<section class="panel" id="games"><h2 data-i18n="games"></h2><p class="sub" data-i18n="gamesSub"></p>
+  <div class="car"><div class="track" id="gTrack"></div><div class="dots" id="gDots"></div></div>
+  <div id="gameBox"></div></section>
 <section class="panel" id="privacy"><h2 data-i18n="privacy"></h2><p class="sub" data-i18n="privacySub"></p><ul class="plist" id="privList"></ul>
   <p class="note"><span data-i18n="dataQ"></span> <a href="mailto:konttechnology@gmail.com">konttechnology@gmail.com</a></p></section>
 
 <footer><span>&copy; 2026 Kont Technology</span><span><a href="mailto:konttechnology@gmail.com" data-i18n="contact"></a> &middot; <a href="app-ads.txt">app-ads.txt</a></span></footer>
 </div>
 
-<script src="kont.js?v=20261004a"></script>
+<script src="kont.js?v=20261004b"></script>
 <script>
 (function(){
   var K=KONT,e=K.esc;
@@ -138,13 +140,9 @@ footer a{color:var(--accent)}
       var st=' style="animation-delay:'+(i*45)+'ms"';
       return '<li>'+(a.play?'<a class="row" href="'+K.playUrl(a)+'"'+st+'>'+inner+'</a>':'<div class="row"'+st+'>'+inner+'</div>')+'</li>';
     }).join('');
-    var feat=['hushbrook','bubblelevel','compass','soundmeter','pdftools','phonetest','tuner','photoresizer','starwise'].map(function(id){return K.APPS.filter(function(a){return a.id===id})[0]}).filter(Boolean);
-    document.getElementById('track').innerHTML=feat.map(function(a){
-      var inner='<img class="big" src="img/'+a.id+'.webp" alt=""><div><div class="k">'+(a.play?K.t('onPlay'):K.t('comingSoon'))+'</div><h3>'+e(a.name[L].split(':')[0])+'</h3><p>'+e(a.short[L])+'</p></div>';
-      return a.play?'<a class="slide" style="--c:'+a.color+'" href="'+K.playUrl(a)+'">'+inner+'</a>':'<div class="slide" style="--c:'+a.color+'">'+inner+'</div>'}).join('');
-    document.getElementById('dots').innerHTML=feat.map(function(_,i){return '<b data-i="'+i+'"></b>'}).join('');
-    go(idx,true);
-    var games=K.APPS.filter(function(a){return a.type==='game'});
+    var apps=K.APPS.filter(function(a){return a.type==='app'}),games=K.APPS.filter(function(a){return a.type==='game'});
+    function byPlay(l){return l.filter(function(a){return a.play}).concat(l.filter(function(a){return !a.play}))}
+    cars.forEach(function(c){c.fill(byPlay(c.type==='app'?apps:games),L)});
     document.getElementById('gameBox').innerHTML=games.map(function(g){
       var inner='<span class="tag">'+(g.play?K.t('onPlay'):K.t('comingSoon'))+'</span><div class="in"><img src="img/'+g.id+'.webp" alt=""><div><h3>'+e(g.name[L])+'</h3><p>'+e(g.short[L])+'</p></div><span class="btn">'+(g.play?K.t('get'):K.t('soon'))+'</span></div>';
       return g.play?'<a class="feature" href="'+K.playUrl(g)+'">'+inner+'</a>':'<div class="feature">'+inner+'</div>'}).join('');
@@ -155,15 +153,25 @@ footer a{color:var(--accent)}
       return '<li><a href="'+a.id+'-privacy/"><img src="img/'+a.id+'.webp" alt=""><span>'+e(a.name[L].split(':')[0])+'<br><small>'+K.t('policy')+'</small></span>&rsaquo;</a></li>';
     }).join('');
   }
-  var tr=document.getElementById('track'),idx=0,timer;
-  function go(i,quiet){var sl=tr.children;if(!sl.length)return;idx=(i+sl.length)%sl.length;if(!quiet)tr.scrollTo({left:sl[idx].offsetLeft-tr.offsetLeft,behavior:'smooth'});
-    [].forEach.call(document.querySelectorAll('#dots b'),function(d,j){d.className=j===idx?'on':''})}
-  document.getElementById('dots').addEventListener('click',function(ev){if(ev.target.dataset.i){go(+ev.target.dataset.i);restart()}});
-  tr.addEventListener('scroll',function(){var sl=tr.children,best=0,d=1e9;for(var i=0;i<sl.length;i++){var dd=Math.abs(sl[i].offsetLeft-tr.offsetLeft-tr.scrollLeft);if(dd<d){d=dd;best=i}}if(best!==idx){idx=best;go(idx,true)}},{passive:true});
-  function restart(){clearInterval(timer);if(!matchMedia('(prefers-reduced-motion: reduce)').matches)timer=setInterval(function(){if(!document.hidden&&!document.getElementById('apps').hidden)go(idx+1)},4200)}
-  tr.addEventListener('pointerenter',function(){clearInterval(timer)});tr.addEventListener('pointerleave',restart);
-  tr.addEventListener('touchstart',function(){clearInterval(timer)},{passive:true});tr.addEventListener('touchend',restart);
-  K.onChange(render);K.apply();restart();
+  function Car(type,trackId,dotsId,panelId){
+    var tr=document.getElementById(trackId),dots=document.getElementById(dotsId),idx=0,timer,c={type:type};
+    function go(i,quiet){var sl=tr.children;if(!sl.length)return;idx=(i+sl.length)%sl.length;if(!quiet)tr.scrollTo({left:sl[idx].offsetLeft-tr.offsetLeft,behavior:'smooth'});
+      [].forEach.call(dots.children,function(d,j){d.className=j===idx?'on':''})}
+    c.fill=function(list,L){
+      tr.innerHTML=list.map(function(a){
+        var inner='<img class="big" src="img/'+a.id+'.webp" alt=""><div><div class="k">'+(a.play?K.t('onPlay'):K.t('comingSoon'))+'</div><h3>'+e(a.name[L].split(':')[0])+'</h3><p>'+e(a.short[L])+'</p></div>';
+        return a.play?'<a class="slide" style="--c:'+a.color+'" href="'+K.playUrl(a)+'">'+inner+'</a>':'<div class="slide" style="--c:'+a.color+'">'+inner+'</div>'}).join('');
+      dots.innerHTML=list.map(function(_,i){return '<b data-i="'+i+'"></b>'}).join('');
+      go(idx,true)};
+    function restart(){clearInterval(timer);if(!matchMedia('(prefers-reduced-motion: reduce)').matches)timer=setInterval(function(){if(!document.hidden&&!document.getElementById(panelId).hidden)go(idx+1)},4200)}
+    c.restart=restart;
+    dots.addEventListener('click',function(ev){if(ev.target.dataset.i){go(+ev.target.dataset.i);restart()}});
+    tr.addEventListener('scroll',function(){var sl=tr.children,best=0,d=1e9;for(var i=0;i<sl.length;i++){var dd=Math.abs(sl[i].offsetLeft-tr.offsetLeft-tr.scrollLeft);if(dd<d){d=dd;best=i}}if(best!==idx){idx=best;go(idx,true)}},{passive:true});
+    tr.addEventListener('pointerenter',function(){clearInterval(timer)});tr.addEventListener('pointerleave',restart);
+    tr.addEventListener('touchstart',function(){clearInterval(timer)},{passive:true});tr.addEventListener('touchend',restart);
+    return c}
+  var cars=[Car('app','track','dots','apps'),Car('game','gTrack','gDots','games')];
+  K.onChange(render);K.apply();cars.forEach(function(c){c.restart()});
   var tabs=[].slice.call(document.querySelectorAll('.tabs a')),panels=[].slice.call(document.querySelectorAll('.panel'));
   function show(id){if(!document.getElementById(id))id='apps';panels.forEach(function(p){p.hidden=p.id!==id});tabs.forEach(function(t){t.setAttribute('aria-selected',t.hash==='#'+id)})}
   tabs.forEach(function(t){t.addEventListener('click',function(ev){ev.preventDefault();show(t.hash.slice(1));history.replaceState(null,'',t.hash)})});
