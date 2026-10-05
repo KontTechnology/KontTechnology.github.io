@@ -51,7 +51,7 @@ window.KONT = (function () {
   var STR = {
     en: {
       title: 'Kont Technology', role: 'Android developer',
-      tagline: 'Small, honest utilities and puzzles. No accounts, no sign-in.',
+      tagline: 'Small, honest utilities and puzzles. No account needed.',
       apps: 'Apps', game: 'Game', games: 'Games', privacy: 'Privacy',
       appsSub: 'Simple tools that do one job well.',
       gamesSub: 'Calm puzzles for a quiet moment.',
@@ -60,12 +60,12 @@ window.KONT = (function () {
       policy: 'Privacy policy', open: 'Open',
       dataQ: 'Questions about your data? Write to',
       contact: 'Contact', all: 'All', featured: 'Featured', live: 'Live',
-      noAccounts: 'No accounts', offline: 'Works offline', noSignIn: 'No sign-in', light: 'Lightweight',
+      noAccounts: 'No account needed', offline: 'Works offline', noSignIn: 'Sign-in optional', light: 'Lightweight',
       scroll: 'Explore', madeWith: 'Made with care in Türkiye'
     },
     tr: {
       title: 'Kont Technology', role: 'Android geliştiricisi',
-      tagline: 'Küçük, dürüst yardımcı uygulamalar ve bulmacalar. Hesap yok, giriş yok.',
+      tagline: 'Küçük, dürüst yardımcı uygulamalar ve bulmacalar. Hesap gerekmez.',
       apps: 'Uygulamalar', game: 'Oyun', games: 'Oyunlar', privacy: 'Gizlilik',
       appsSub: 'Tek bir işi iyi yapan sade araçlar.',
       gamesSub: 'Sakin anlar için dingin bulmacalar.',
@@ -74,7 +74,7 @@ window.KONT = (function () {
       policy: 'Gizlilik politikası', open: 'Aç',
       dataQ: 'Verilerinizle ilgili sorularınız için:',
       contact: 'İletişim', all: 'Tümü', featured: 'Öne çıkanlar', live: 'Yayında',
-      noAccounts: 'Hesap yok', offline: 'Çevrimdışı', noSignIn: 'Giriş yok', light: 'Hafif',
+      noAccounts: 'Hesap gerekmez', offline: 'Çevrimdışı', noSignIn: 'Giriş isteğe bağlı', light: 'Hafif',
       scroll: 'Keşfet', madeWith: "Türkiye'de özenle yapıldı"
     }
   };
