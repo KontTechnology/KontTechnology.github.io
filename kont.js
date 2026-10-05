@@ -37,6 +37,12 @@ window.KONT = (function () {
     { id: 'brickwell', type: 'game', color: '#212d7d', play: null,
       name: { en: 'Brickwell: Fair Block Puzzle', tr: 'Brickwell: Adil Blok Bulmaca' },
       short: { en: 'Drag blocks, clear lines. Every set of pieces always fits, with undo.', tr: 'Blokları sürükle, satırları temizle. Gelen her set sığar, geri al var.' } },
+    { id: 'flaskwell', type: 'game', color: '#39c6e8', play: null,
+      name: { en: 'Flaskwell: Fair Water Sort', tr: 'Flaskwell: Adil Su Sıralama' },
+      short: { en: 'Calm water sorting. Every level solvable, no extra bottle, unlimited undo.', tr: 'Sakin su sıralama. Her seviye ek şişesiz çözülür, geri al sınırsız.' } },
+    { id: 'parkbrook', type: 'game', color: '#55a0e9', play: null,
+      name: { en: 'Parkbrook: Car Parking Puzzle', tr: 'Parkbrook: Otopark Bulmacası' },
+      short: { en: 'Slide cars out of the lot. No timer, no lives, every level checked.', tr: 'Araçları kaydır, otoparktan çıkar. Süre yok, can yok, her seviye denetlendi.' } },
     { id: 'starwise', type: 'game', color: '#fbd173', play: null,
       name: { en: 'Starwise: Star Battle Logic', tr: 'Starwise: Mantık Bulmacası' },
       short: { en: 'Calm, fair logic puzzles under the stars. No guessing.', tr: 'Yıldızların altında sakin, adil mantık bulmacaları.' } }
