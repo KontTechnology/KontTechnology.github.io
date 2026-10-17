@@ -43,7 +43,7 @@ window.KONT = (function () {
     { id: 'parkbrook', type: 'game', color: '#55a0e9', play: null,
       name: { en: 'Parkbrook: Car Parking Puzzle', tr: 'Parkbrook: Otopark Bulmacası' },
       short: { en: 'Slide cars out of the lot. No timer, no lives, every level checked.', tr: 'Araçları kaydır, otoparktan çıkar. Süre yok, can yok, her seviye denetlendi.' } },
-    { id: 'starwise', type: 'game', color: '#fbd173', play: null,
+    { id: 'starwise', type: 'game', color: '#fbd173', play: 'com.kont.starwise',
       name: { en: 'Starwise: Star Battle Logic', tr: 'Starwise: Mantık Bulmacası' },
       short: { en: 'Calm, fair logic puzzles under the stars. No guessing.', tr: 'Yıldızların altında sakin, adil mantık bulmacaları.' } }
   ];
