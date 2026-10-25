@@ -55,6 +55,9 @@ window.KONT = (function () {
     { id: 'jellywell', type: 'game', color: '#9f86d6', play: null,
       name: { en: 'Jellywell: Jelly Block Puzzle', tr: 'Jellywell: Jöle Blok Bulmacası' },
       short: { en: 'Slide wobbly jelly blocks to doors of their color. Fair puzzles, unlimited undo.', tr: 'Jöle blokları kendi rengindeki kapıya kaydır. Adil bulmacalar, sınırsız geri al.' } },
+    { id: 'hivewell', type: 'game', color: '#f2b33d', play: null,
+      name: { en: 'Hivewell: Hex Stack Sort', tr: 'Hivewell: Altıgen Yığın Sırala' },
+      short: { en: 'Drag hex stacks, merge colors and pop 10 of a kind. Tools are earned, never sold.', tr: 'Altıgen yığınları sürükle, renkleri birleştir, 10’da patlat. Araçlar satılmaz.' } },
     { id: 'starwise', type: 'game', color: '#fbd173', play: 'com.kont.starwise',
       name: { en: 'Starwise: Star Battle Logic', tr: 'Starwise: Mantık Bulmacası' },
       short: { en: 'Calm, fair logic puzzles under the stars. No guessing.', tr: 'Yıldızların altında sakin, adil mantık bulmacaları.' } }
