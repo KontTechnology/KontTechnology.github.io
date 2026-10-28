@@ -58,6 +58,9 @@ window.KONT = (function () {
     { id: 'hivewell', type: 'game', color: '#f2b33d', play: null,
       name: { en: 'Hivewell: Hex Stack Sort', tr: 'Hivewell: Altıgen Yığın Sırala' },
       short: { en: 'Drag hex stacks, merge colors and pop 10 of a kind. Tools are earned, never sold.', tr: 'Altıgen yığınları sürükle, renkleri birleştir, 10’da patlat. Araçlar satılmaz.' } },
+    { id: 'boltwell', type: 'game', color: '#e7b95a', play: null,
+      name: { en: 'Boltwell: Screw Puzzle', tr: 'Boltwell: Vida Bulmacası' },
+      short: { en: 'Unscrew bolts, drop glass plates, pack the boxes. Every board has a solution.', tr: 'Vidaları sök, cam plakaları düşür, kutuları doldur. Her tahtanın bir çözümü var.' } },
     { id: 'starwise', type: 'game', color: '#fbd173', play: 'com.kont.starwise',
       name: { en: 'Starwise: Star Battle Logic', tr: 'Starwise: Mantık Bulmacası' },
       short: { en: 'Calm, fair logic puzzles under the stars. No guessing.', tr: 'Yıldızların altında sakin, adil mantık bulmacaları.' } }
