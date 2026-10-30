@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — ID Watermark / Kimlik Filigranı</title>
+<style>
+  :root { color-scheme: light dark; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    line-height: 1.65; margin: 0 auto; max-width: 760px; padding: 32px 20px 80px;
+    color: #1a1f26; background: #ffffff;
+  }
+  @media (prefers-color-scheme: dark) {
+    body { color: #e6ebf2; background: #10141a; }
+    code { background: #1c232c; }
+    hr { border-color: #2a323d; }
+  }
+  h1 { font-size: 1.8rem; margin-bottom: .2em; }
+  h2 { font-size: 1.25rem; margin-top: 2em; }
+  h3 { font-size: 1.05rem; margin-top: 1.6em; }
+  .updated { opacity: .7; font-size: .9rem; }
+  hr { margin: 3em 0; border: 0; border-top: 1px solid #d7dde5; }
+  ul { padding-left: 1.2em; }
+  a { color: #2f4bc7; }
+  code { background: #f0f3f7; padding: .1em .35em; border-radius: 4px; font-size: .9em; }
+  .highlight { border-left: 3px solid #5b7bff; padding-left: 14px; }
+</style>
+</head>
+<body>
+<h1>Privacy Policy</h1>
+<p class="updated">Application: <strong>ID Watermark: Secure Copy</strong> (package <code>com.kont.idwatermark</code>)<br>
+Last updated: 30 October 2026</p>
+
+<p>This policy explains what data the ID Watermark application handles. It is written to match
+the actual behaviour of the app, not a generic template.</p>
+
+<h2>1. Summary</h2>
+<div class="highlight">
+<p>The app puts a watermark on a copy of your ID card, driving licence, passport or other document
+<strong>on your phone</strong>. Your document images are never uploaded to a server, never stored by the
+app after you leave the editor, and never given to the advertising SDK. There is no account and no cloud.</p>
+</div>
+
+<h2>2. Data the developer collects</h2>
+<p><strong>None.</strong> The app has no accounts, no servers and no analytics belonging to the
+developer. Your documents, the recipient names you type and your history are never sent to the developer.</p>
+<p><strong>List of our other apps.</strong> To show the "More apps from us" section in Settings and after a
+copy is ready, the app downloads a public list of our apps and their icons from our developer site
+(<a href="https://konttechnology.github.io/">konttechnology.github.io</a>, hosted by GitHub Pages) at most about
+twice a day. The request contains no personal data, no identifiers and nothing about your documents; like any
+web request, it reveals your IP address to the hosting provider. To hide apps you already have, the app checks
+on your device whether our other apps are installed; this check never leaves your device. Tapping an app opens
+its Google Play page.</p>
+
+<h2>3. How your documents are handled</h2>
+<ul>
+  <li>You choose a document in one of three ways: you photograph it inside the app (camera), you pick an image
+      with the Android photo picker, or you pick a PDF with the Android file picker. You can also share an image
+      or PDF to the app from another app. The app has <em>no permission to read your photo library or files</em>;
+      it only receives the item you choose.</li>
+  <li>Camera frames are processed in memory and cropped to the guide frame; the app does not save camera
+      photos on its own.</li>
+  <li>The watermark, the redaction boxes and the short trace code are drawn on your phone. The original file
+      is never changed or deleted.</li>
+  <li>Photo information (EXIF, XMP and similar metadata such as location, camera model and date) is
+      <strong>always removed</strong> from the watermarked copy. A PDF copy contains only the watermarked image.</li>
+  <li>To share, a temporary copy is written to the app's private cache and handed to the app you choose through
+      the Android share menu. The cache is cleared when the app starts, when you leave the editor and when a new
+      copy is prepared. If you choose "Save to gallery", the copy is saved in <code>Pictures/ID Watermark</code>
+      (images) or <code>Download/ID Watermark</code> (PDF).</li>
+  <li>A document leaves your phone only if you share it yourself.</li>
+</ul>
+
+<h2>4. Data stored on your device</h2>
+<p>The app never keeps your document images. In its private storage it keeps only:</p>
+<ul>
+  <li><strong>History:</strong> for each copy you shared or saved, the trace code, the recipient and purpose you
+      typed, the date and time and the output type. No image is stored. You can delete single entries or the whole
+      history in the app.</li>
+  <li><strong>Recent recipients:</strong> the last few recipient names, so you can pick them again (can be cleared
+      in Settings).</li>
+  <li>Whether Pro was purchased (confirmed again with Google Play) and the rating-window counters (how many
+      copies you have made, on how many separate days the app was opened and the total time it was used, so the
+      rating window is shown at most once).</li>
+</ul>
+<p>The history and recent recipients are deliberately <strong>excluded</strong> from Android's backup and device
+transfer; only the rating-window counters may be included. Everything is deleted when you uninstall the app or
+clear its data. A logo or signature image chosen for the Pro watermark is kept only in memory while the app is
+open.</p>
+
+<h2>5. Purchases</h2>
+<p>An optional one-time "Pro" purchase is processed entirely by Google Play. The developer never
+sees your payment details. The app only asks Google Play whether the purchase exists, so that Pro
+can be restored on your devices.</p>
+
+<h2>6. Advertising (Google AdMob)</h2>
+<p>The free version shows one banner advertisement from Google AdMob on the home screen only. There are no
+ads in the editor and no full-screen or opening ads. You may choose to watch one rewarded video to unlock a Pro
+feature for one copy; it is never required. To serve ads, the Google Mobile Ads SDK may collect and process:</p>
+<ul>
+  <li>advertising identifier (Android Advertising ID) and other device identifiers,</li>
+  <li>approximate location derived from your IP address,</li>
+  <li>device information (model, operating system, language, screen size),</li>
+  <li>ad interaction data (whether an ad was shown, viewed or clicked).</li>
+</ul>
+<p>Your documents, recipient names and history are never shared with the advertising SDK. This processing is
+carried out by Google under its own terms. See
+<a href="https://policies.google.com/technologies/partner-sites">How Google uses information from
+sites or apps that use our services</a> and the
+<a href="https://policies.google.com/privacy">Google Privacy Policy</a>. Pro users see no ads.</p>
+
+<h3>Consent in the EEA, UK and Switzerland</h3>
+<p>If you are in a region where consent is required, the app shows a Google-certified consent
+screen (Google User Messaging Platform) the first time it runs. You can change your choice at any
+time in <em>Settings &rarr; Ad privacy choices</em>. If consent is not given, the app still works
+in full.</p>
+
+<h2>7. Permissions</h2>
+<ul>
+  <li><strong>Camera (CAMERA)</strong> &mdash; requested only when you tap "Camera" to photograph a document.
+      If you refuse, you can still use the photo picker or a PDF.</li>
+  <li><strong>Storage write (WRITE_EXTERNAL_STORAGE)</strong> &mdash; requested only on Android 9
+      and older, to save the copy to your gallery. Android 10 and newer need no permission for this.</li>
+  <li>Internet access, network state, advertising ID and Android Ad Services permissions are
+      declared by the Google Mobile Ads SDK; billing permission by Google Play Billing.</li>
+</ul>
+<p>The app does not access your device's location, microphone, contacts, SMS or call history,
+and cannot browse your photo library or files.</p>
+
+<h2>8. No legal guarantee</h2>
+<p>A watermark makes misuse of a copy harder and helps you recognise where a copy came from; it cannot
+prevent every misuse. The guide in the app is general information, not legal advice.</p>
+
+<h2>9. Children</h2>
+<p>The app is a general-audience tool and is not directed at children under 13. The developer
+does not knowingly collect any data from children.</p>
+
+<h2>10. Data deletion</h2>
+<p>Because the developer holds no data about you, there is nothing to request deletion of. Saved
+copies are ordinary files on your phone and can be deleted there. To remove the app's records, delete the
+history in the app, uninstall it or use <em>Settings &rarr; Apps &rarr; ID Watermark &rarr; Storage &rarr; Clear
+data</em>.</p>
+
+<h2>11. Contact</h2>
+<p>Questions about this policy: <strong>konttechnology@gmail.com</strong></p>
+
+<hr>
+
+<h1>Gizlilik Politikası</h1>
+<p class="updated">Uygulama: <strong>Kimlik Filigranı: Güvenli Gönder</strong> (paket <code>com.kont.idwatermark</code>)<br>
+Son güncelleme: 30 Ekim 2026</p>
+
+<p>Bu politika, Kimlik Filigranı uygulamasının hangi verileri işlediğini açıklar. Metin,
+uygulamanın gerçek davranışına göre yazılmıştır.</p>
+
+<h2>1. Özet</h2>
+<div class="highlight">
+<p>Uygulama kimlik kartınızın, ehliyetinizin, pasaportunuzun veya başka bir belgenizin kopyasına
+<strong>telefonunuzda</strong> filigran ekler. Belge görüntüleriniz hiçbir sunucuya yüklenmez, düzenleme
+ekranından çıktıktan sonra uygulamada saklanmaz ve reklam SDK'sına hiçbir zaman verilmez. Hesap ve bulut yoktur.</p>
+</div>
+
+<h2>2. Geliştiricinin topladığı veriler</h2>
+<p><strong>Hiçbiri.</strong> Uygulamada hesap, sunucu veya geliştiriciye ait analitik bulunmaz.
+Belgeleriniz, yazdığınız alıcı adları ve geçmişiniz geliştiriciye gönderilmez.</p>
+<p><strong>Diğer uygulamalarımızın listesi.</strong> Ayarlar'daki ve kopya hazır olunca görünen "Diğer
+uygulamalarımız" bölümünü göstermek için uygulama, geliştirici sitemizden
+(<a href="https://konttechnology.github.io/">konttechnology.github.io</a>, GitHub Pages üzerinde) uygulamalarımızın
+herkese açık listesini ve simgelerini günde en fazla yaklaşık iki kez indirir. Bu istek hiçbir kişisel veri,
+kimlik bilgisi ya da belgelerinize dair bilgi içermez; her web isteğinde olduğu gibi IP adresiniz barındırma
+hizmetine görünür. Zaten yüklü olan uygulamaları gizlemek için uygulama, diğer uygulamalarımızın yüklü olup
+olmadığını cihazınızda kontrol eder; bu kontrol cihazınızdan çıkmaz. Bir uygulamaya dokunmak onun Google Play
+sayfasını açar.</p>
+
+<h2>3. Belgeleriniz nasıl işlenir</h2>
+<ul>
+  <li>Belgeyi üç yoldan biriyle seçersiniz: uygulama içinde fotoğrafını çekersiniz (kamera), Android fotoğraf
+      seçicisiyle bir resim seçersiniz ya da Android dosya seçicisiyle bir PDF seçersiniz. Başka bir uygulamadan
+      resim veya PDF'yi uygulamaya paylaşabilirsiniz. Uygulamanın <em>fotoğraf arşivinizi veya dosyalarınızı okuma
+      izni yoktur</em>; yalnızca seçtiğiniz öğeyi alır.</li>
+  <li>Kamera görüntüsü bellekte işlenir ve kılavuz çerçeveye göre kırpılır; uygulama kamera fotoğrafını kendiliğinden
+      kaydetmez.</li>
+  <li>Filigran, karartma kutuları ve kısa iz kodu telefonunuzda çizilir. Orijinal dosya hiçbir zaman değiştirilmez
+      veya silinmez.</li>
+  <li>Fotoğraf bilgileri (EXIF, XMP ve benzeri; konum, kamera modeli, tarih gibi) filigranlı kopyadan
+      <strong>her zaman silinir</strong>. PDF kopyada yalnızca filigranlı resim bulunur.</li>
+  <li>Paylaşmak için uygulamanın özel önbelleğine geçici bir kopya yazılır ve Android paylaşım menüsünde seçtiğiniz
+      uygulamaya verilir. Önbellek; uygulama açılınca, düzenleme ekranından çıkınca ve yeni kopya hazırlanırken
+      temizlenir. "Galeriye kaydet"i seçerseniz kopya <code>Pictures/ID Watermark</code> (resim) veya
+      <code>Download/ID Watermark</code> (PDF) klasörüne kaydedilir.</li>
+  <li>Bir belge telefonunuzdan yalnızca siz paylaşırsanız çıkar.</li>
+</ul>
+
+<h2>4. Cihazınızda saklanan veriler</h2>
+<p>Uygulama belge görüntülerinizi hiçbir zaman saklamaz. Özel alanında yalnızca şunları tutar:</p>
+<ul>
+  <li><strong>Geçmiş:</strong> paylaştığınız veya kaydettiğiniz her kopya için iz kodu, yazdığınız alıcı ve amaç,
+      tarih-saat ve çıktı türü. Görüntü saklanmaz. Kayıtları tek tek veya tümüyle uygulamadan silebilirsiniz.</li>
+  <li><strong>Son alıcılar:</strong> yeniden seçebilmeniz için son birkaç alıcı adı (Ayarlar'dan temizlenebilir).</li>
+  <li>Pro'nun satın alınıp alınmadığı (Google Play ile yeniden doğrulanır) ve puan penceresi sayaçları (kaç kopya
+      yaptığınız, uygulamanın kaç ayrı gün açıldığı ve toplam kullanım süresi; puan penceresi en fazla bir kez
+      gösterilsin diye).</li>
+</ul>
+<p>Geçmiş ve son alıcılar bilerek Android yedeğine ve cihaz aktarımına <strong>dahil edilmez</strong>; yalnızca puan
+penceresi sayaçları dahil olabilir. Uygulamayı kaldırdığınızda veya verilerini temizlediğinizde hepsi silinir. Pro
+filigranı için seçilen logo veya imza görüntüsü yalnızca uygulama açıkken bellekte tutulur.</p>
+
+<h2>5. Satın almalar</h2>
+<p>İsteğe bağlı tek seferlik "Pro" satın alması tamamen Google Play tarafından işlenir. Geliştirici
+ödeme bilgilerinizi hiçbir zaman görmez. Uygulama yalnızca Pro'nun cihazlarınızda geri
+yüklenebilmesi için satın almanın var olup olmadığını Google Play'e sorar.</p>
+
+<h2>6. Reklamlar (Google AdMob)</h2>
+<p>Ücretsiz sürüm yalnızca ana ekranda Google AdMob'dan bir banner reklamı gösterir. Düzenleme ekranında reklam,
+tam ekran veya açılış reklamı yoktur. Bir kopya için Pro özelliği açmak üzere isteğe bağlı olarak tek bir ödüllü
+video izleyebilirsiniz; zorunlu değildir. Reklam sunmak için Google Mobile Ads SDK'sı şunları işleyebilir:</p>
+<ul>
+  <li>reklam kimliği (Android Advertising ID) ve diğer cihaz tanımlayıcıları,</li>
+  <li>IP adresinden türetilen yaklaşık konum,</li>
+  <li>cihaz bilgileri (model, işletim sistemi, dil, ekran boyutu),</li>
+  <li>reklam etkileşim verileri (gösterim, görüntüleme, tıklama).</li>
+</ul>
+<p>Belgeleriniz, alıcı adları ve geçmişiniz reklam SDK'sıyla hiçbir zaman paylaşılmaz. Bu işleme Google tarafından
+kendi koşulları kapsamında yapılır:
+<a href="https://policies.google.com/technologies/partner-sites">Google'ın, hizmetlerini kullanan
+uygulamalardan gelen bilgileri nasıl kullandığı</a> ve
+<a href="https://policies.google.com/privacy">Google Gizlilik Politikası</a>. Pro kullanıcılar
+reklam görmez.</p>
+
+<h3>AEA, Birleşik Krallık ve İsviçre'de onay</h3>
+<p>Onayın gerekli olduğu bir bölgedeyseniz uygulama ilk açılışta Google onaylı bir izin ekranı
+gösterir. Seçiminizi istediğiniz zaman <em>Ayarlar &rarr; Reklam gizlilik seçenekleri</em>
+bölümünden değiştirebilirsiniz. Onay vermeseniz de uygulama tam olarak çalışır.</p>
+
+<h2>7. İzinler</h2>
+<ul>
+  <li><strong>Kamera (CAMERA)</strong> &mdash; yalnızca belgenin fotoğrafını çekmek için "Kamera"ya dokunduğunuzda
+      istenir. Reddederseniz fotoğraf seçiciyi veya PDF'yi kullanmaya devam edebilirsiniz.</li>
+  <li><strong>Depolamaya yazma (WRITE_EXTERNAL_STORAGE)</strong> &mdash; yalnızca Android 9 ve
+      öncesinde, kopyayı galeriye kaydetmek için istenir. Android 10 ve sonrası için izin gerekmez.</li>
+  <li>İnternet erişimi, ağ durumu, reklam kimliği ve Android Ad Services izinleri Google Mobile Ads
+      SDK'sı, satın alma izni Google Play Billing tarafından bildirilir.</li>
+</ul>
+<p>Uygulama cihazınızın konumuna, mikrofonunuza, kişilerinize, SMS veya arama geçmişinize erişmez;
+fotoğraf arşivinizde veya dosyalarınızda gezinemez.</p>
+
+<h2>8. Hukuki güvence yoktur</h2>
+<p>Filigran, kopyanın kötüye kullanılmasını zorlaştırır ve kopyanın nereden çıktığını anlamanıza yardım eder;
+her kötüye kullanımı önleyemez. Uygulamadaki rehber genel bilgidir, hukuki tavsiye değildir.</p>
+
+<h2>9. Çocuklar</h2>
+<p>Uygulama genel izleyiciye yönelik bir araçtır ve 13 yaş altı çocuklara yönelik değildir.
+Geliştirici bilerek çocuklardan veri toplamaz.</p>
+
+<h2>10. Verilerin silinmesi</h2>
+<p>Geliştirici sizinle ilgili hiçbir veri tutmadığı için silinmesini isteyebileceğiniz bir veri
+yoktur. Kaydedilen kopyalar telefonunuzda sıradan dosyalardır ve oradan silinebilir. Uygulama kayıtlarını
+silmek için geçmişi uygulamadan silin, uygulamayı kaldırın veya <em>Ayarlar &rarr; Uygulamalar &rarr; ID Watermark
+&rarr; Depolama &rarr; Verileri temizle</em> yolunu kullanın.</p>
+
+<h2>11. İletişim</h2>
+<p>Bu politika hakkında sorular: <strong>konttechnology@gmail.com</strong></p>
+
+</body>
+</html>
