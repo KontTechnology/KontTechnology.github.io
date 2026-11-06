@@ -375,6 +375,36 @@
    }
   },
   {
+   "id": "gpscamera",
+   "pkg": "com.kont.gpscamera",
+   "type": "app",
+   "color": "#2ec4a9",
+   "icon": "img/gpscamera.webp",
+   "title": {
+    "en": "GPS Camera: Photo PDF Report",
+    "tr": "GPS Kamera: Damga ve PDF Rapor"
+   },
+   "short": {
+    "en": "Stamp date, address, map and QR on photos. Project folders and PDF reports.",
+    "tr": "Fotoğrafa tarih, adres, harita ve QR basın. Proje klasörleri ve PDF rapor."
+   }
+  },
+  {
+   "id": "speedometer",
+   "pkg": "com.kont.speedometer",
+   "type": "app",
+   "color": "#ffb020",
+   "icon": "img/speedometer.webp",
+   "title": {
+    "en": "Speedometer: GPS Trip Recorder",
+    "tr": "Hız Göstergesi: Yolculuk Kaydı"
+   },
+   "short": {
+    "en": "Speedometer, odometer and speed alert that keeps recording with the screen off.",
+    "tr": "Km sayacı, hız uyarısı ve yolculuk geçmişi. Ekran kapalıyken de kaydeder."
+   }
+  },
+  {
    "id": "hushbrook",
    "pkg": "com.kont.hushbrook",
    "type": "game",
@@ -397,20 +427,20 @@
     "zh": "Hushbrook：麻将消除"
    },
    "short": {
-    "en": "Calm Mahjong by the quiet water. One tap, a gentle tray, a new board every day.",
-    "tr": "Sakin suyun kıyısında Mahjong. Tek dokunuş, zarif tepsi, her gün yeni tahta.",
-    "de": "Ruhiges Mahjong am stillen Wasser. Ein Tipp, eine sanfte Ablage, täglich neu.",
-    "es": "Mahjong tranquilo junto al agua. Un toque, una bandeja suave, un tablero diario.",
-    "fr": "Mahjong paisible au bord de l'eau. Une touche, une réserve, un plateau par jour.",
-    "id": "Mahjong tenang di tepi air. Satu ketukan, baki lembut, papan baru tiap hari.",
-    "it": "Mahjong rilassante in riva all'acqua. Un tocco, un vassoio, ogni giorno nuovo.",
-    "ja": "静かな水辺でのんびり麻雀ソリティア。タップひとつ、やさしいトレイ、毎日新しい盤面。",
-    "ko": "고요한 물가의 편안한 마작. 탭 한 번, 부드러운 트레이, 매일 새로운 판.",
-    "nl": "Rustige Mahjong aan stil water. Eén tik, een rekje, elke dag een nieuw bord.",
-    "pl": "Spokojny Mahjong nad wodą. Jedno stuknięcie, tacka i codziennie nowa plansza.",
-    "pt": "Mahjong tranquilo à beira d'água. Um toque, uma bandeja e um desafio por dia.",
-    "ru": "Спокойный маджонг у тихой воды. Одно касание, лоток и новое поле каждый день.",
-    "zh": "在静静的水边，玩一局轻松的麻将消除。轻点一下，柔和托盘，每天都有新棋盘。"
+    "en": "Calm Mahjong solitaire. Classic or tray mode, big tiles, offline, no timer.",
+    "tr": "Sakin Mahjong. Klasik ya da tepsili mod, iri taşlar, internetsiz, süre yok.",
+    "de": "Ruhiges Mahjong. Klassisch oder mit Ablage, große Steine, offline, ohne Timer.",
+    "es": "Mahjong relajante. Modo clásico o con bandeja, fichas grandes, sin conexión.",
+    "fr": "Mahjong paisible. Mode classique ou réserve, grandes tuiles, hors ligne.",
+    "id": "Mahjong tenang. Mode klasik atau baki, ubin besar, offline, tanpa waktu.",
+    "it": "Mahjong rilassante. Modalità classica o vassoio, tessere grandi, offline.",
+    "ja": "のんびり麻雀ソリティア。クラシックとトレイの2モード、大きな牌、オフライン、時間制限なし。",
+    "ko": "편안한 마작. 클래식·트레이 모드, 큰 타일, 오프라인, 시간 제한 없음.",
+    "nl": "Rustige Mahjong. Klassiek of met bak, grote stenen, offline, geen timer.",
+    "pl": "Spokojny Mahjong. Tryb klasyczny lub z tacą, duże kamienie, offline, bez czasu.",
+    "pt": "Mahjong tranquilo. Modo clássico ou bandeja, peças grandes, offline, sem tempo.",
+    "ru": "Спокойный маджонг. Классика или лоток, крупные кости, офлайн, без таймера.",
+    "zh": "轻松麻将消除。经典或托盘模式，大号牌面，离线可玩，无时间限制。"
    }
   },
   {
