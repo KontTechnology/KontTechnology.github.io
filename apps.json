@@ -382,11 +382,35 @@
    "icon": "img/gpscamera.webp",
    "title": {
     "en": "GPS Camera: Photo PDF Report",
-    "tr": "GPS Kamera: Damga ve PDF Rapor"
+    "tr": "GPS Kamera: Damga ve PDF Rapor",
+    "de": "GPS-Kamera: Foto-PDF-Bericht",
+    "es": "Cámara GPS: Informes en PDF",
+    "fr": "Caméra GPS : rapport photo PDF",
+    "id": "Kamera GPS: Laporan Foto PDF",
+    "it": "Fotocamera GPS: Report in PDF",
+    "ja": "GPSカメラ：写真PDFレポート",
+    "ko": "GPS 카메라: 사진 PDF 보고서",
+    "nl": "GPS-camera: Foto PDF-rapport",
+    "pl": "Aparat GPS: raport PDF zdjęć",
+    "pt": "Câmera GPS: Relatório em PDF",
+    "ru": "GPS-камера: фотоотчёт в PDF",
+    "zh": "GPS相机：照片PDF报告"
    },
    "short": {
     "en": "Stamp date, address, map and QR on photos. Project folders and PDF reports.",
-    "tr": "Fotoğrafa tarih, adres, harita ve QR basın. Proje klasörleri ve PDF rapor."
+    "tr": "Fotoğrafa tarih, adres, harita ve QR basın. Proje klasörleri ve PDF rapor.",
+    "de": "Datum, Adresse, Karte und QR aufs Foto stempeln. Projektordner und PDF-Berichte.",
+    "es": "Fecha, dirección, mapa y QR en tus fotos. Carpetas por proyecto e informes PDF.",
+    "fr": "Date, adresse, carte et QR sur vos photos. Dossiers par projet et rapports PDF.",
+    "id": "Cap tanggal, alamat, peta, dan QR di foto. Folder per proyek dan laporan PDF.",
+    "it": "Data, indirizzo, mappa e QR sulle foto. Cartelle per progetto e report PDF.",
+    "ja": "日付・住所・地図・QRを写真に記録。プロジェクトフォルダとPDFレポート。",
+    "ko": "사진에 날짜, 주소, 지도, QR을 찍어 줍니다. 프로젝트 폴더와 PDF 보고서.",
+    "nl": "Datum, adres, kaart en QR op je foto's. Projectmappen en PDF-rapporten.",
+    "pl": "Data, adres, mapa i kod QR na zdjęciach. Foldery projektów i raporty PDF.",
+    "pt": "Carimbe data, endereço, mapa e QR nas fotos. Pastas por projeto e relatório PDF.",
+    "ru": "Дата, адрес, карта и QR-код на фото. Папки проектов и отчёты в PDF.",
+    "zh": "在照片上加盖日期、地址、地图和二维码。按项目分文件夹，生成 PDF 报告。"
    }
   },
   {
@@ -397,11 +421,35 @@
    "icon": "img/speedometer.webp",
    "title": {
     "en": "Speedometer: GPS Trip Recorder",
-    "tr": "Hız Göstergesi: Yolculuk Kaydı"
+    "tr": "Hız Göstergesi: Yolculuk Kaydı",
+    "de": "Tacho: GPS-Fahrtenaufzeichnung",
+    "es": "Velocímetro: Registro GPS",
+    "fr": "Compteur de vitesse GPS",
+    "id": "Speedometer: Perekam Trip GPS",
+    "it": "Tachimetro GPS: Diario viaggi",
+    "ja": "スピードメーター：GPS走行記録",
+    "ko": "속도계: GPS 주행 기록",
+    "nl": "Snelheidsmeter: GPS-ritlogboek",
+    "pl": "Prędkościomierz GPS: Trasy",
+    "pt": "Velocímetro GPS: Viagens",
+    "ru": "Спидометр: GPS-трекер поездок",
+    "zh": "速度表：GPS行程记录"
    },
    "short": {
     "en": "Speedometer, odometer and speed alert that keeps recording with the screen off.",
-    "tr": "Km sayacı, hız uyarısı ve yolculuk geçmişi. Ekran kapalıyken de kaydeder."
+    "tr": "Km sayacı, hız uyarısı ve yolculuk geçmişi. Ekran kapalıyken de kaydeder.",
+    "de": "Tacho, Kilometerzähler und Tempowarnung. Zeichnet auch bei dunklem Display auf.",
+    "es": "Velocímetro, cuentakilómetros y aviso de velocidad. Graba con pantalla apagada.",
+    "fr": "Compteur de vitesse, odomètre et alerte de vitesse. Enregistre écran éteint.",
+    "id": "Speedometer, odometer, dan peringatan kecepatan. Tetap merekam saat layar mati.",
+    "it": "Tachimetro, contachilometri e avviso di velocità. Registra a schermo spento.",
+    "ja": "速度計、走行距離計、速度警告。画面がオフでも記録を続けます。",
+    "ko": "속도계, 주행거리계, 속도 경고. 화면이 꺼져도 계속 기록합니다.",
+    "nl": "Snelheidsmeter, kilometerteller en snelheidsalarm. Registreert met scherm uit.",
+    "pl": "Prędkościomierz, drogomierz i alarm prędkości. Nagrywa przy wyłączonym ekranie.",
+    "pt": "Velocímetro, hodômetro e alerta de velocidade. Grava mesmo com a tela desligada.",
+    "ru": "Спидометр, одометр и предупреждение о скорости. Запись при выключенном экране.",
+    "zh": "速度表、里程表和超速提醒，熄屏后也能继续记录。"
    }
   },
   {
@@ -597,6 +645,84 @@
     "zh": "滑动车辆驶出停车场。无时间限制，无生命值。每一关都经过求解器验证。",
     "es": "Desliza los coches fuera del parking. Sin tiempo ni vidas. Niveles verificados.",
     "it": "Fai scorrere le auto fuori dal parcheggio. Niente timer, niente vite."
+   }
+  },
+  {
+   "id": "burrowly",
+   "pkg": "com.kont.burrowly",
+   "type": "game",
+   "color": "#4f8740",
+   "icon": "img/burrowly.webp",
+   "title": {
+    "en": "Burrowly: Gecko Puzzle",
+    "de": "Burrowly: Gecko-Rätsel",
+    "es": "Burrowly: Puzle de Gecos",
+    "fr": "Burrowly : Puzzle de Geckos",
+    "id": "Burrowly: Puzzle Tokek",
+    "it": "Burrowly: Puzzle dei Gechi",
+    "ja": "Burrowly: ヤモリのパズル",
+    "ko": "Burrowly: 도마뱀 퍼즐",
+    "nl": "Burrowly: Gekkopuzzel",
+    "pl": "Burrowly: Gekonowa Zagadka",
+    "pt": "Burrowly: Puzzle de Lagartixa",
+    "ru": "Burrowly: Головоломка гекконов",
+    "tr": "Burrowly: Gecko Bulmacası",
+    "zh": "Burrowly：壁虎回家解谜"
+   },
+   "short": {
+    "en": "Guide cute geckos home to their burrows. Fair puzzles, no lives, unlimited undo.",
+    "de": "Bring süße Geckos in ihren Bau. Faire Rätsel, keine Leben, unbegrenzt zurück.",
+    "es": "Lleva a los gecos a su madriguera. Puzles justos, sin vidas, deshacer ilimitado.",
+    "fr": "Ramène les geckos au terrier. Puzzles justes, sans vies, annuler illimité.",
+    "id": "Antar tokek lucu ke liangnya. Puzzle adil, tanpa nyawa, urungkan tanpa batas.",
+    "it": "Porta i gechi nella loro tana. Puzzle equi, niente vite, annulla senza limiti.",
+    "ja": "かわいいヤモリを巣穴へ帰そう。公平なパズル、ライフなし、元に戻すは無制限。",
+    "ko": "귀여운 도마뱀을 굴로 데려다 주세요. 공정한 퍼즐, 목숨 없음, 되돌리기 무제한.",
+    "nl": "Breng gekko's naar hun hol. Eerlijke puzzels, geen levens, onbeperkt terug.",
+    "pl": "Zaprowadź gekony do ich norek. Uczciwe zagadki, bez żyć, cofanie bez limitu.",
+    "pt": "Leve as lagartixas à toca. Puzzles justos, sem vidas, desfazer ilimitado.",
+    "ru": "Отведи гекконов в норки. Честные пазлы, без жизней, отмена без ограничений.",
+    "tr": "Sevimli geckoları yuvalarına götür. Adil bulmacalar, can yok, sınırsız geri al.",
+    "zh": "把可爱的壁虎送回洞穴。公平谜题，没有体力限制，撤销不限次数。"
+   }
+  },
+  {
+   "id": "jellywell",
+   "pkg": "com.kont.jellywell",
+   "type": "game",
+   "color": "#9f86d6",
+   "icon": "img/jellywell.webp",
+   "title": {
+    "en": "Jellywell: Jelly Block Puzzle",
+    "de": "Jellywell: Gelee-Block-Rätsel",
+    "es": "Jellywell: Puzle de Gelatina",
+    "fr": "Jellywell : Puzzle de Gelée",
+    "id": "Jellywell: Puzzle Blok Jeli",
+    "it": "Jellywell: Puzzle di Gelatina",
+    "ja": "Jellywell: ゼリーブロックパズル",
+    "ko": "Jellywell: 젤리 블록 퍼즐",
+    "nl": "Jellywell: Geleiblokpuzzel",
+    "pl": "Jellywell: Galaretkowe Bloki",
+    "pt": "Jellywell: Blocos de Gelatina",
+    "ru": "Jellywell: Желейные блоки",
+    "tr": "Jellywell: Jöle Blok Bulmacası",
+    "zh": "Jellywell：果冻方块解谜"
+   },
+   "short": {
+    "en": "Slide wobbly jelly blocks to doors of their color. Fair puzzles, unlimited undo.",
+    "de": "Schieb Gelee-Blöcke zur Tür ihrer Farbe. Faire Rätsel, unbegrenzt rückgängig.",
+    "es": "Lleva la gelatina a la puerta de su color. Puzles justos, deshacer ilimitado.",
+    "fr": "Fais glisser les blocs de gelée vers la porte de leur couleur. Puzzles justes.",
+    "id": "Geser blok jeli ke pintu yang warnanya sama. Puzzle adil, urungkan tanpa batas.",
+    "it": "Porta ogni gelatina alla porta del suo colore. Puzzle equi, annulla illimitato.",
+    "ja": "ぷるぷるのゼリーを同じ色の扉へすべらせよう。公平なパズル、元に戻すは無制限。",
+    "ko": "말랑한 젤리 블록을 같은 색 문으로 밀어 주세요. 공정한 퍼즐, 되돌리기 무제한.",
+    "nl": "Schuif wiebelige geleiblokken naar de deur in hun kleur. Eerlijke puzzels.",
+    "pl": "Przesuwaj galaretki do drzwi w ich kolorze. Uczciwe zagadki, cofanie bez limitu.",
+    "pt": "Deslize blocos de gelatina até a porta da mesma cor. Puzzles justos e desfazer.",
+    "ru": "Двигай желе к двери своего цвета. Честные пазлы, отмена без ограничений.",
+    "tr": "Jöle blokları kendi rengindeki kapıya kaydır. Adil bulmacalar, sınırsız geri al.",
+    "zh": "把软弹的果冻方块推向同色的门。公平谜题，撤销不限次数。"
    }
   },
   {
