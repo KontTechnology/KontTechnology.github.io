@@ -726,6 +726,45 @@
    }
   },
   {
+   "id": "boltwell",
+   "pkg": "com.kont.boltwell",
+   "type": "game",
+   "color": "#e7b95a",
+   "icon": "img/boltwell.webp",
+   "title": {
+    "en": "Boltwell: Screw Puzzle",
+    "tr": "Boltwell: Vida Bulmacası",
+    "de": "Boltwell: Schrauben-Puzzle",
+    "es": "Boltwell: Puzle de tornillos",
+    "fr": "Boltwell: Puzzle de vis",
+    "id": "Boltwell: Teka-teki Baut",
+    "it": "Boltwell: Puzzle di viti",
+    "ja": "Boltwell: ネジ外しパズル",
+    "ko": "Boltwell: 나사 퍼즐",
+    "nl": "Boltwell: Schroefpuzzel",
+    "pl": "Boltwell: Układanka ze śrubami",
+    "pt": "Boltwell: Puzzle de parafusos",
+    "ru": "Boltwell: Пазл с винтами",
+    "zh": "Boltwell: 螺丝解谜"
+   },
+   "short": {
+    "en": "Unscrew bolts, drop glass plates, pack the boxes. Every board has a solution.",
+    "tr": "Vidaları sök, cam plakaları düşür, kutuları doldur. Her tahtanın bir çözümü var.",
+    "de": "Schrauben lösen, Glasplatten fallen lassen, Boxen füllen. Jedes Brett lösbar.",
+    "es": "Desatornilla, suelta placas, llena cajas. Cada tablero tiene solución.",
+    "fr": "Dévisse, lâche les plaques de verre, remplis les boîtes. Solution garantie.",
+    "id": "Lepas baut, jatuhkan pelat kaca, isi kotak. Setiap papan pasti ada solusinya.",
+    "it": "Svita, lascia cadere le lastre, riempi le scatole. Ogni tavola ha soluzione.",
+    "ja": "ネジを外してガラスのプレートを落とし、ボックスを埋めよう。どのボードにも解法があります。",
+    "ko": "나사를 풀고 유리판을 떨어뜨려 상자를 채우세요. 모든 보드에는 해법이 있어요.",
+    "nl": "Draai schroeven los, laat glasplaten vallen, vul dozen. Elk bord oplosbaar.",
+    "pl": "Wykręcaj śruby, zrzucaj płyty, zapełniaj pudełka. Każda plansza ma rozwiązanie.",
+    "pt": "Desparafuse, derrube placas de vidro, encha caixas. Todo tabuleiro tem solução.",
+    "ru": "Выкручивай винты, роняй пластины, заполняй коробки. Решение есть всегда.",
+    "zh": "拧下螺丝，让玻璃板落下，装满盒子。每个挑战板都有解法。"
+   }
+  },
+  {
    "id": "starwise",
    "pkg": "com.kont.starwise",
    "type": "game",
