@@ -726,6 +726,45 @@
    }
   },
   {
+   "id": "hivewell",
+   "pkg": "com.kont.hivewell",
+   "type": "game",
+   "color": "#f2b33d",
+   "icon": "img/hivewell.webp",
+   "title": {
+    "en": "Hivewell: Hex Stack Sort",
+    "de": "Hivewell: Hex-Stapel sortieren",
+    "es": "Hivewell: Ordena pilas hex",
+    "fr": "Hivewell: Tri d'hexagones",
+    "it": "Hivewell: Ordina gli esagoni",
+    "ja": "Hivewell: 六角スタック仕分けパズル",
+    "ko": "Hivewell: 육각 스택 정렬 퍼즐",
+    "nl": "Hivewell: Hex-stapels sorteren",
+    "pl": "Hivewell: Sortuj stosy heksów",
+    "pt": "Hivewell: Ordene pilhas hex",
+    "ru": "Hivewell: Сортировка гексов",
+    "tr": "Hivewell: Altıgen Yığın Sırala",
+    "zh": "Hivewell: 六角堆叠排序",
+    "id": "Hivewell: Urutkan Tumpukan Hex"
+   },
+   "short": {
+    "en": "Drag hex stacks, merge colors, pop 10 of a kind! Tools are earned, never sold.",
+    "de": "Zieh Hex-Stapel, vereine Farben, 10 gleiche platzen! Werkzeuge nie käuflich.",
+    "es": "¡Arrastra pilas hex, une colores, explota 10 iguales! Herramientas no se venden.",
+    "fr": "Glisse des piles hex, fusionne, fais éclater 10 tuiles ! Outils jamais vendus.",
+    "it": "Unisci pile hex per colore e fai scoppiare 10 tessere! Strumenti mai in vendita.",
+    "ja": "六角スタックを動かして色をまとめ、10枚そろえてはじけさせよう！道具は遊んで手に入れる、販売なし。",
+    "ko": "육각 스택을 끌어 색을 합치고 같은 색 10개를 터뜨리세요! 도구는 플레이로 얻고, 판매하지 않아요.",
+    "nl": "Sleep hex-stapels, voeg kleuren samen, laat er 10 knallen! Hulp nooit te koop.",
+    "pl": "Przeciągaj stosy heksów, łącz kolory, rozbijaj po 10! Narzędzia nie na sprzedaż.",
+    "pt": "Arraste pilhas hex, junte cores e estoure 10 iguais! Ferramentas nunca à venda.",
+    "ru": "Двигай стопки гексов, соединяй цвета, взрывай по 10! Инструменты не продаются.",
+    "tr": "Altıgen yığınları sürükle, renkleri birleştir, 10'da patlat! Araçlar satılmaz.",
+    "zh": "拖动六角堆，合并颜色，凑齐 10 个同色就消除！道具靠玩来赚，从不出售。",
+    "id": "Seret tumpukan hex, gabungkan warna, letuskan 10 warna sama! Alat tidak dijual."
+   }
+  },
+  {
    "id": "boltwell",
    "pkg": "com.kont.boltwell",
    "type": "game",
